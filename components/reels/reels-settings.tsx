@@ -4,6 +4,7 @@ import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import type { ReelsMode } from "./reels-preview"
+import * as gtag from "@/lib/gtag"
 
 const MODES: readonly ReelsMode[] = ["content", "white", "black", "custom"] as const
 const EXPORT_W = 1080
@@ -129,6 +130,8 @@ export function ReelsSettings({ image, mode, customColor, contentBlur, onModeCha
           a.remove()
           URL.revokeObjectURL(url)
           setExporting(false)
+          
+          gtag.event("reels_cut")
         }, "image/png")
       } catch (e) {
         console.error(e)
