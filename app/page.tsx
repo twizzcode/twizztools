@@ -1,17 +1,41 @@
-import { Button } from "@/components/ui/button"
+import type { Metadata } from "next"
 
-export default function Page() {
+export const metadata: Metadata = {
+  title: "TwizzTools - Free Instagram Tools",
+  description: "Koleksi tools gratis untuk membantu workflow kreatif kamu. Image cutter untuk Instagram Grid & Carousel, dan Reels maker.",
+  openGraph: {
+    title: "TwizzTools - Free Instagram Tools",
+    description: "Koleksi tools gratis untuk membantu workflow kreatif kamu. Image cutter untuk Instagram Grid & Carousel, dan Reels maker.",
+  },
+}
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
+    <div className="flex flex-1 flex-col items-center justify-center p-4">
+      <div className="max-w-2xl w-full text-center space-y-6">
+        <h1 className="text-4xl font-bold">TwizzTools</h1>
+        <p className="text-lg text-muted-foreground">
+          Koleksi tools untuk membantu workflow kreatif kamu
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2 mt-8">
+          <a
+            href="/cutter"
+            className="rounded-xl border bg-card p-6 hover:bg-accent transition-colors"
+          >
+            <h2 className="text-xl font-semibold mb-2">Image Cutter</h2>
+            <p className="text-sm text-muted-foreground">
+              Potong gambar untuk Instagram Grid & Carousel
+            </p>
+          </a>
+          <a
+            href="/reels"
+            className="rounded-xl border bg-card p-6 hover:bg-accent transition-colors"
+          >
+            <h2 className="text-xl font-semibold mb-2">Reels Maker</h2>
+            <p className="text-sm text-muted-foreground">
+              Buat gambar format 9:16 untuk Instagram Reels
+            </p>
+          </a>
         </div>
       </div>
     </div>
