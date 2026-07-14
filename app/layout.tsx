@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { MobileNav } from "@/components/mobile-nav"
 import { WelcomeDialog } from "@/components/welcome-dialog"
+import { GoogleAnalytics } from "@/components/google-analytics"
 import { cn } from "@/lib/utils"
 
 const roboto = Roboto({subsets:['latin'],variable:'--font-sans'})
@@ -54,6 +55,7 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", roboto.variable)}
     >
       <body>
+        <GoogleAnalytics />
         <ThemeProvider>
           <WelcomeDialog />
           <div className="h-svh overflow-hidden [--header-height:calc(--spacing(14))]">
