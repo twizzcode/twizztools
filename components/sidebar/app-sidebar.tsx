@@ -12,7 +12,7 @@ import {
   SidebarFooter,
 } from "@/components/ui/sidebar"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Home01Icon, ScissorIcon, InstagramIcon, BookOpen02Icon, Settings05Icon, ChartRingIcon, SentIcon, CropIcon, PieChartIcon, MapsIcon, GithubIcon } from "@hugeicons/core-free-icons"
+import { Home01Icon, ScissorIcon, InstagramIcon, BookOpen02Icon, Settings05Icon, ChartRingIcon, SentIcon, CropIcon, PieChartIcon, MapsIcon, GithubIcon, MessageMultiple01Icon } from "@hugeicons/core-free-icons"
 
 const data = {
   user: {
@@ -43,6 +43,14 @@ const data = {
       description: "Create Instagram Reels",
       icon: (
         <HugeiconsIcon icon={InstagramIcon} strokeWidth={2} />
+      ),
+    },
+    {
+      title: "Captions",
+      url: "/captions",
+      description: "AI Caption Generator",
+      icon: (
+        <HugeiconsIcon icon={MessageMultiple01Icon} strokeWidth={2} />
       ),
     },
     // {

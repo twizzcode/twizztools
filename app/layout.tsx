@@ -9,6 +9,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { MobileNav } from "@/components/mobile-nav"
 import { WelcomeDialog } from "@/components/welcome-dialog"
 import { GoogleAnalytics } from "@/components/google-analytics"
+import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
 
 const roboto = Roboto({subsets:['latin'],variable:'--font-sans'})
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body>
         <GoogleAnalytics />
         <ThemeProvider>
+          <Toaster />
           <WelcomeDialog />
           <div className="h-svh overflow-hidden [--header-height:calc(--spacing(14))]">
             <SidebarProvider className="flex h-full min-h-0 w-full flex-col overflow-hidden">

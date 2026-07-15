@@ -7,11 +7,14 @@ export function GoogleAnalytics() {
     return null
   }
 
+  const gaId = "G-KK8LJK03HX"
+
   return (
     <>
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-KK8LJK03HX"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        async
       />
       <Script
         id="google-analytics"
@@ -21,7 +24,7 @@ export function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-KK8LJK03HX');
+            gtag('config', '${gaId}');
           `,
         }}
       />

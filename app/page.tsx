@@ -2,10 +2,10 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "TwizzTools - Free Instagram Tools",
-  description: "Koleksi tools gratis untuk membantu workflow kreatif kamu. Image cutter untuk Instagram Grid & Carousel, dan Reels maker.",
+    description: "Koleksi tools gratis untuk membantu workflow kreatif kamu. Image cutter untuk Instagram Grid & Carousel, Reels maker, dan AI Caption Generator.",
   openGraph: {
     title: "TwizzTools - Free Instagram Tools",
-    description: "Koleksi tools gratis untuk membantu workflow kreatif kamu. Image cutter untuk Instagram Grid & Carousel, dan Reels maker.",
+  description: "Koleksi tools gratis untuk membantu workflow kreatif kamu. Image cutter untuk Instagram Grid & Carousel, Reels maker, dan AI Caption Generator.",
   },
 }
 
@@ -17,7 +17,7 @@ export default function HomePage() {
         <p className="text-lg text-muted-foreground">
           Koleksi tools untuk membantu workflow kreatif kamu
         </p>
-        <div className="grid gap-4 sm:grid-cols-2 mt-8">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-8">
           <a
             href="/cutter"
             className="rounded-xl border bg-card p-6 hover:bg-accent transition-colors"
@@ -34,6 +34,15 @@ export default function HomePage() {
             <h2 className="text-xl font-semibold mb-2">Reels Maker</h2>
             <p className="text-sm text-muted-foreground">
               Buat gambar format 9:16 untuk Instagram Reels
+            </p>
+          </a>
+          <a
+            href="/captions"
+            className="rounded-xl border bg-card p-6 hover:bg-accent transition-colors"
+          >
+            <h2 className="text-xl font-semibold mb-2">AI Captions</h2>
+            <p className="text-sm text-muted-foreground">
+              Generate caption dengan AI untuk social media
             </p>
           </a>
         </div>
