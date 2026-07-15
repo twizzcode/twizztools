@@ -1,25 +1,64 @@
 "use client"
 
 import * as React from "react"
+import { useTheme } from "next-themes"
 
 import { NavMain } from "@/components/sidebar/nav-main"
-import { NavProjects } from "@/components/sidebar/nav-projects"
 import { NavSecondary } from "@/components/sidebar/nav-secondary"
-import { NavUser } from "@/components/sidebar/nav-user"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
 } from "@/components/ui/sidebar"
+import { Switch } from "@/components/ui/switch"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Home01Icon, ScissorIcon, InstagramIcon, BookOpen02Icon, Settings05Icon, ChartRingIcon, SentIcon, CropIcon, PieChartIcon, MapsIcon, GithubIcon, MessageMultiple01Icon } from "@hugeicons/core-free-icons"
+import {
+  Home01Icon,
+  ScissorIcon,
+  InstagramIcon,
+  Settings05Icon,
+  GithubIcon,
+  MessageMultiple01Icon,
+  NoteIcon,
+  HelpCircleIcon,
+  Moon02Icon,
+  Sun03Icon,
+  FavouriteIcon,
+} from "@hugeicons/core-free-icons"
+
+function SidebarThemeToggle() {
+  const [mounted, setMounted] = React.useState(false)
+  const { resolvedTheme, setTheme } = useTheme()
+  const isDark = mounted && resolvedTheme === "dark"
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  return (
+    <div className="flex items-center gap-2">
+      <HugeiconsIcon
+        icon={Sun03Icon}
+        strokeWidth={2}
+        className="ml-1 size-4 text-muted-foreground"
+      />
+      <Switch
+        checked={isDark}
+        disabled={!mounted}
+        onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+        aria-label="Toggle theme"
+        className="h-5 w-9 data-[state=checked]:[&>span]:translate-x-4 [&>span]:size-4"
+      />
+      <HugeiconsIcon
+        icon={Moon02Icon}
+        strokeWidth={2}
+        className="mr-1 size-4 text-muted-foreground"
+      />
+    </div>
+  )
+}
 
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       title: "Home",
@@ -72,40 +111,24 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Support",
-      url: "#",
+      title: "Settings",
+      url: "/settings",
       icon: (
-        <HugeiconsIcon icon={ChartRingIcon} strokeWidth={2} />
+        <HugeiconsIcon icon={Settings05Icon} strokeWidth={2} />
       ),
     },
     {
-      title: "Feedback",
-      url: "#",
+      title: "Changelog",
+      url: "/changelog",
       icon: (
-        <HugeiconsIcon icon={SentIcon} strokeWidth={2} />
-      ),
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: (
-        <HugeiconsIcon icon={CropIcon} strokeWidth={2} />
+        <HugeiconsIcon icon={NoteIcon} strokeWidth={2} />
       ),
     },
     {
-      name: "Sales & Marketing",
-      url: "#",
+      title: "FAQ",
+      url: "/faq",
       icon: (
-        <HugeiconsIcon icon={PieChartIcon} strokeWidth={2} />
-      ),
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: (
-        <HugeiconsIcon icon={MapsIcon} strokeWidth={2} />
+        <HugeiconsIcon icon={HelpCircleIcon} strokeWidth={2} />
       ),
     },
   ],
@@ -131,30 +154,40 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
         {/*<NavProjects projects={data.projects} />*/}
-        {/*<NavSecondary items={data.navSecondary} className="mt-auto" />*/}
+        <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
-      <SidebarFooter>
-        <div className="p-4 text-center space-y-3 border-t">
-          <p className="text-xs text-muted-foreground">
-            © 2026 twizzcode
-          </p>
-          <div className="flex justify-center gap-4">
-            <a
-              href="https://github.com/twizzcode"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <HugeiconsIcon icon={GithubIcon} strokeWidth={2} className="size-5" />
-            </a>
-            <a
-              href="https://instagram.com/twizzcode"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <HugeiconsIcon icon={InstagramIcon} strokeWidth={2} className="size-5" />
-            </a>
+      <SidebarFooter className="p-0">
+        {/*<div className="border-t" />*/}
+        <div className="space-y-3 px-4 pb-4 pt-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <a
+                href="https://github.com/twizzcode"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <HugeiconsIcon icon={GithubIcon} strokeWidth={2} className="size-4" />
+              </a>
+              <a
+                href="https://instagram.com/twizzcode"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <HugeiconsIcon icon={InstagramIcon} strokeWidth={2} className="size-4" />
+              </a>
+            </div>
+            <SidebarThemeToggle />
+          </div>
+          <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
+            <span>Made with</span>
+            <HugeiconsIcon
+              icon={FavouriteIcon}
+              strokeWidth={2}
+              className="size-3.5 text-red-500"
+            />
+            <span>by twizzcode</span>
           </div>
         </div>
       </SidebarFooter>

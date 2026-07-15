@@ -1,13 +1,16 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { useSidebar } from "@/components/ui/sidebar"
+import Image from "next/image"
 import { SidebarLeftIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import Image from "next/image"
+
+import { Button } from "@/components/ui/button"
+import { useSidebar } from "@/components/ui/sidebar"
+import { changelogEntries } from "@/lib/changelog"
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar()
+  const latestVersion = changelogEntries[0]?.version ?? "0.0.0"
 
   return (
     <header className="sticky top-0 z-50 flex w-full items-center border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -21,9 +24,14 @@ export function SiteHeader() {
               height={32}
               className="rounded"
             />
-            <span className="text-xl font-bold tracking-tight sm:text-2xl">
-              Twizz Tools
-            </span>
+            <div className="leading-none">
+              <span className="block text-sm font-bold tracking-tight sm:text-base">
+                Twizz Tools
+              </span>
+              <span className="block text-[10px] text-muted-foreground">
+                v{latestVersion}
+              </span>
+            </div>
           </div>
 
           <Button

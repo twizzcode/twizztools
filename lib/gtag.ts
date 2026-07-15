@@ -1,18 +1,11 @@
 export const GA_TRACKING_ID = "G-KK8LJK03HX"
 
-declare global {
-  interface Window {
-    gtag: (
-      command: string,
-      targetId: string,
-      config?: Record<string, any>
-    ) => void
-    dataLayer: any[]
-  }
+type GtagWindow = Window & {
+  gtag?: (command: "event", action: string, params?: Record<string, unknown>) => void
 }
 
-export const event = (action: string, params?: Record<string, any>) => {
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("event", action, params)
+export const event = (action: string, params?: Record<string, unknown>) => {
+  if (typeof window !== "undefined") {
+    ;(window as GtagWindow).gtag?.("event", action, params)
   }
 }

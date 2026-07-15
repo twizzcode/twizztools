@@ -4,8 +4,15 @@ import * as React from "react"
 import { CaptionsWorkspace } from "@/components/captions/captions-workspace"
 import { CaptionsSettings } from "@/components/captions/captions-settings"
 import type { CaptionOptions } from "@/lib/caption-prompt"
+import { event } from "@/lib/gtag"
 import { checkRateLimit, incrementUsage } from "@/lib/rate-limit"
 import { toast } from "sonner"
+
+function trackCaptionGenerate() {
+  event("generate_caption", {
+    event_category: "captions",
+  })
+}
 
 export default function CaptionsPage() {
   const [image, setImage] = React.useState<string>()
@@ -60,6 +67,7 @@ export default function CaptionsPage() {
       const data = await response.json()
       setCaptions(data.captions)
       incrementUsage()
+      trackCaptionGenerate()
       toast.success("Captions generated successfully!")
     } catch (err) {
       if (err instanceof Error && err.name === "AbortError") {
