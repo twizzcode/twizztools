@@ -25,6 +25,7 @@ import {
   Moon02Icon,
   Sun03Icon,
   FavouriteIcon,
+  GroupIcon,
 } from "@hugeicons/core-free-icons"
 
 function SidebarThemeToggle() {
@@ -100,6 +101,14 @@ const data = {
       description: "Convert and compress image",
       icon: (
         <HugeiconsIcon icon={Image01Icon} strokeWidth={2} />
+      ),
+    },
+    {
+      title: "Team Picker",
+      url: "/team-picker",
+      description: "Random team generator",
+      icon: (
+        <HugeiconsIcon icon={GroupIcon} strokeWidth={2} />
       ),
     },
   ],

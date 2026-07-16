@@ -3,7 +3,6 @@
 import * as React from "react"
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -16,20 +15,18 @@ export function WelcomeDialog() {
   const [open, setOpen] = React.useState(false)
 
   React.useEffect(() => {
-    const hasSeenWelcome = localStorage.getItem("twizztools-welcome-seen")
-    if (!hasSeenWelcome) {
-      setOpen(true)
-    }
+    const timeout = window.setTimeout(() => {
+      const hasSeenWelcome = localStorage.getItem("twizztools-welcome-seen")
+      if (!hasSeenWelcome) {
+        setOpen(true)
+      }
+    }, 0)
+    return () => window.clearTimeout(timeout)
   }, [])
 
   const handleClose = () => {
     localStorage.setItem("twizztools-welcome-seen", "true")
     setOpen(false)
-  }
-
-  const handleReset = () => {
-    localStorage.removeItem("twizztools-welcome-seen")
-    window.location.reload()
   }
 
   return (

@@ -42,15 +42,16 @@ export function FooterManager({ open, onClose }: FooterManagerProps) {
       const response = await fetch("/api/footers")
       const data = await response.json()
       setFooters(data.footers || [])
-    } catch (_error) {
+    } catch {
       toast.error("Failed to fetch footers")
     }
   }, [])
 
   React.useEffect(() => {
-    if (open) {
-      fetchFooters()
-    }
+    if (!open) return
+
+    const timeout = window.setTimeout(fetchFooters, 0)
+    return () => window.clearTimeout(timeout)
   }, [open, fetchFooters])
 
   const handleCreate = async () => {
@@ -106,7 +107,7 @@ export function FooterManager({ open, onClose }: FooterManagerProps) {
       toast.success("Footer updated successfully")
       setEditingFooter(null)
       fetchFooters()
-    } catch (_error) {
+    } catch {
       toast.error("Failed to update footer")
     } finally {
       setLoading(false)
@@ -128,7 +129,7 @@ export function FooterManager({ open, onClose }: FooterManagerProps) {
 
       toast.success("Footer deleted successfully")
       fetchFooters()
-    } catch (_error) {
+    } catch {
       toast.error("Failed to delete footer")
     } finally {
       setLoading(false)

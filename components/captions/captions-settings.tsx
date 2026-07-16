@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
 import {
   Select,
   SelectContent,
@@ -58,7 +57,8 @@ export function CaptionsSettings({
   }, [])
 
   React.useEffect(() => {
-    fetchFooters()
+    const timeout = window.setTimeout(fetchFooters, 0)
+    return () => window.clearTimeout(timeout)
   }, [fetchFooters])
 
   const handleFooterManagerClose = () => {

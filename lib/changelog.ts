@@ -23,6 +23,20 @@ export function formatChangelogDate(date: string) {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    id: "team-picker",
+    title: "Team Picker",
+    version: "3.0.5",
+    date: "2026-07-16",
+    description:
+      "Update hari ini menambahkan Team Picker untuk membantu memilih dan mengacak anggota tim dengan lebih cepat.",
+    changes: [
+      "Fitur Team Picker baru untuk menentukan anggota tim",
+      "Alur pemilihan tim dibuat lebih cepat dan praktis",
+      "Navigasi ke Team Picker ditambahkan agar mudah diakses",
+      "Penyempurnaan pengalaman pengguna untuk workflow kolaborasi",
+    ],
+  },
+  {
     id: "convert-image",
     title: "Convert Image",
     version: "3.0.4",

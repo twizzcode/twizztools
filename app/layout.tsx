@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Roboto } from "next/font/google"
+import { Geist_Mono, Roboto } from "next/font/google"
 import type { Metadata } from "next"
 
 import "./globals.css"

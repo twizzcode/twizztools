@@ -23,7 +23,8 @@ export function CaptionsResults({
   const [editedCaptions, setEditedCaptions] = React.useState<string[]>(captions)
 
   React.useEffect(() => {
-    setEditedCaptions(captions)
+    const timeout = window.setTimeout(() => setEditedCaptions(captions), 0)
+    return () => window.clearTimeout(timeout)
   }, [captions])
 
   const handleCopy = React.useCallback((caption: string, index: number) => {
@@ -38,7 +39,7 @@ export function CaptionsResults({
     setEditingIndex(index)
   }, [])
 
-  const handleSave = React.useCallback((index: number) => {
+  const handleSave = React.useCallback(() => {
     setEditingIndex(null)
     toast.success("Caption updated!")
   }, [])
@@ -78,7 +79,7 @@ export function CaptionsResults({
                     variant="ghost"
                     size="sm"
                     className="size-8 p-0"
-                    onClick={() => handleSave(index)}
+                    onClick={() => handleSave()}
                   >
                     <HugeiconsIcon
                       icon={CheckmarkCircle01Icon}

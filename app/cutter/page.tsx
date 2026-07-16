@@ -4,7 +4,6 @@ import * as React from "react"
 import { SettingsPanel } from "@/components/home/settings-panel"
 import { Workspace } from "@/components/home/workspace"
 import { GRID_CONST, type CutMode, type GapOption, type Phase } from "@/components/home/live-preview"
-import { Separator } from "@/components/ui/separator"
 
 export const iframeHeight = "980px"
 

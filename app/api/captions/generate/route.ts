@@ -36,7 +36,7 @@ function validateImageDataUrl(dataUrl: string): {
     }
 
     return { valid: true, mimeType, sizeBytes }
-  } catch (error) {
+  } catch {
     return { valid: false, error: "Failed to validate image" }
   }
 }

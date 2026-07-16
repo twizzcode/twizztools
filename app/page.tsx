@@ -54,6 +54,15 @@ export default function HomePage() {
               Generate caption dengan AI untuk social media
             </p>
           </a>
+          <a
+            href="/team-picker"
+            className="rounded-xl border bg-card p-6 hover:bg-accent transition-colors"
+          >
+            <h2 className="text-xl font-semibold mb-2">Team Picker</h2>
+            <p className="text-sm text-muted-foreground">
+              Buat kelompok random dengan ketua
+            </p>
+          </a>
         </div>
       </div>
     </div>

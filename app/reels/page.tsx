@@ -3,7 +3,6 @@
 import * as React from "react"
 import { ReelsWorkspace } from "@/components/reels/reels-workspace"
 import { ReelsSettings } from "@/components/reels/reels-settings"
-import { Separator } from "@/components/ui/separator"
 import type { ReelsMode } from "@/components/reels/reels-preview"
 
 export default function ReelsPage() {

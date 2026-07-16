@@ -25,7 +25,8 @@ export default function CaptionsPage() {
   const [rateLimit, setRateLimit] = React.useState(() => checkRateLimit())
 
   React.useEffect(() => {
-    setRateLimit(checkRateLimit())
+    const timeout = window.setTimeout(() => setRateLimit(checkRateLimit()), 0)
+    return () => window.clearTimeout(timeout)
   }, [captions.length])
 
   const handleGenerate = React.useCallback(async () => {
