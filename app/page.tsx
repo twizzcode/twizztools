@@ -28,6 +28,15 @@ export default function HomePage() {
             </p>
           </a>
           <a
+            href="/convert-image"
+            className="rounded-xl border bg-card p-6 hover:bg-accent transition-colors"
+          >
+            <h2 className="text-xl font-semibold mb-2">Convert Image</h2>
+            <p className="text-sm text-muted-foreground">
+              Ubah format dan kompres gambar
+            </p>
+          </a>
+          <a
             href="/reels"
             className="rounded-xl border bg-card p-6 hover:bg-accent transition-colors"
           >

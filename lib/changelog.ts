@@ -23,6 +23,21 @@ export function formatChangelogDate(date: string) {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    id: "convert-image",
+    title: "Convert Image",
+    version: "3.0.4",
+    date: "2026-07-16",
+    description:
+      "Update berikutnya menambahkan tool Convert Image untuk konversi dan kompresi gambar langsung dari browser.",
+    changes: [
+      "Halaman Convert Image baru untuk upload banyak gambar",
+      "Konversi format PNG, JPEG, dan WebP",
+      "Pengaturan kualitas untuk kompresi JPEG dan WebP",
+      "Download hasil satuan atau ZIP untuk banyak file",
+      "Shortcut Convert Image ditambahkan ke halaman utama dan sidebar",
+    ],
+  },
+  {
     id: "changelog-faq-theme",
     title: "Changelog, FAQ, dan Theme",
     version: "3.0.3",

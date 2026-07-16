@@ -16,6 +16,7 @@ import {
   Home01Icon,
   ScissorIcon,
   InstagramIcon,
+  Image01Icon,
   Settings05Icon,
   GithubIcon,
   MessageMultiple01Icon,
@@ -32,7 +33,8 @@ function SidebarThemeToggle() {
   const isDark = mounted && resolvedTheme === "dark"
 
   React.useEffect(() => {
-    setMounted(true)
+    const timer = window.setTimeout(() => setMounted(true), 0)
+    return () => window.clearTimeout(timer)
   }, [])
 
   return (
@@ -92,22 +94,14 @@ const data = {
         <HugeiconsIcon icon={MessageMultiple01Icon} strokeWidth={2} />
       ),
     },
-    // {
-    //   title: "Documentation",
-    //   url: "/documentation",
-    //   description: "Guides and references",
-    //   icon: (
-    //     <HugeiconsIcon icon={BookOpen02Icon} strokeWidth={2} />
-    //   ),
-    // },
-    // {
-    //   title: "Settings",
-    //   url: "/settings",
-    //   description: "Manage preferences",
-    //   icon: (
-    //     <HugeiconsIcon icon={Settings05Icon} strokeWidth={2} />
-    //   ),
-    // },
+    {
+      title: "Convert Image",
+      url: "/convert-image",
+      description: "Convert and compress image",
+      icon: (
+        <HugeiconsIcon icon={Image01Icon} strokeWidth={2} />
+      ),
+    },
   ],
   navSecondary: [
     {
