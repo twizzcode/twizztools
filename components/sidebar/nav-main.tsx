@@ -37,9 +37,10 @@ export function NavMain({
                 tooltip={item.title}
                 size="lg"
                 isActive={isActive}
-                className="h-auto min-h-12 gap-3 px-2 py-2"
-                render={<Link href={item.url} />}
-              >
+                 className="h-auto min-h-12 gap-3 px-2 py-2"
+                 render={<Link href={item.url} />}
+               >
+
                 <div className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-sidebar-border/60 bg-sidebar-accent/30 [&_svg]:size-4.5">
                   {item.icon}
                 </div>

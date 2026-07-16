@@ -21,6 +21,7 @@ type CaptionsSettingsProps = {
   options: CaptionOptions & { footerCode?: string }
   onOptionsChange: (options: CaptionOptions & { footerCode?: string }) => void
   onGenerate: () => void
+  generateEvent?: string
   isGenerating: boolean
   hasImage: boolean
 }
@@ -29,6 +30,7 @@ export function CaptionsSettings({
   options,
   onOptionsChange,
   onGenerate,
+  generateEvent,
   isGenerating,
   hasImage,
 }: CaptionsSettingsProps) {
@@ -288,6 +290,7 @@ export function CaptionsSettings({
             className="w-full"
             onClick={onGenerate}
             disabled={!canGenerate}
+            data-umami-event={generateEvent}
           >
             {isGenerating ? "Generating..." : "Generate Captions"}
           </Button>

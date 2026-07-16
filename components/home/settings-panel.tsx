@@ -74,6 +74,7 @@ type SettingsPanelProps = {
   onRowsChange: (value: number) => void
   onColsChange: (value: number) => void
   onCrop: () => void
+  cropEvent?: string
   onReset: () => void
   onBackToCrop: () => void
 }
@@ -92,6 +93,7 @@ export function SettingsPanel({
   onRowsChange,
   onColsChange,
   onCrop,
+  cropEvent,
   onReset,
   onBackToCrop,
 }: SettingsPanelProps) {
@@ -126,7 +128,7 @@ export function SettingsPanel({
           </div>
 
           <div className="grid gap-3">
-            <Button onClick={onCrop} disabled={!imageFile || isCropping}>
+            <Button onClick={onCrop} disabled={!imageFile || isCropping} data-umami-event={cropEvent}>
               {isCropping ? "Cropping..." : "Crop"}
             </Button>
             <Button variant="outline" onClick={onReset} disabled={!imageFile}>

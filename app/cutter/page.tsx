@@ -5,7 +5,6 @@ import { SettingsPanel } from "@/components/home/settings-panel"
 import { Workspace } from "@/components/home/workspace"
 import { GRID_CONST, type CutMode, type GapOption, type Phase } from "@/components/home/live-preview"
 import { Separator } from "@/components/ui/separator"
-import * as gtag from "@/lib/gtag"
 
 export const iframeHeight = "980px"
 
@@ -239,14 +238,6 @@ export default function Page() {
         return nextUrls
       })
       setPhase("result")
-      
-      gtag.event("image_cut", {
-        mode: mode,
-        gap: gap,
-        rows: rows,
-        cols: cols,
-        total_images: nextUrls.length,
-      })
     } catch (error) {
       revokeUrls(nextUrls)
       throw error
@@ -289,6 +280,7 @@ export default function Page() {
             onRowsChange={setRows}
             onColsChange={setCols}
             onCrop={handleCrop}
+            cropEvent="cutter_crop"
             onReset={resetAll}
             onBackToCrop={() => setPhase("crop")}
           />

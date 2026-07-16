@@ -7,7 +7,6 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { Button } from "@/components/ui/button"
 import { FileUpload, FileUploadDropzone } from "@/components/ui/file-upload"
 import { Switch } from "@/components/ui/switch"
-import { event } from "@/lib/gtag"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 const ACCEPTED_TYPES = ["image/png", "image/jpeg", "image/webp"] as const
@@ -353,12 +352,6 @@ export default function ConvertImagePage() {
     try {
       const nextResults = await mapWithConcurrency(files, CONVERT_CONCURRENCY, (file) => convertImage(file, format, canUseQuality ? quality : 0.92))
       setResults(nextResults)
-      event("convert_image", {
-        event_category: "convert_image",
-        file_count: files.length,
-        output_format: format,
-        compress: canUseQuality,
-      })
     } catch {
       setError("Gagal convert gambar")
     } finally {
@@ -529,7 +522,7 @@ export default function ConvertImagePage() {
                 </Button>
               </div>
             ) : (
-              <Button onClick={handleConvert} disabled={files.length === 0 || isReading || isConverting}>
+              <Button onClick={handleConvert} disabled={files.length === 0 || isReading || isConverting} data-umami-event="image_convert">
                 {isConverting ? "Converting..." : "Convert semua"}
               </Button>
             )}

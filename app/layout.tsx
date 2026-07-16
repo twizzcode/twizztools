@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { MobileNav } from "@/components/mobile-nav"
 import { WelcomeDialog } from "@/components/welcome-dialog"
-import { GoogleAnalytics } from "@/components/google-analytics"
+import { UmamiAnalytics } from "@/components/umami-analytics"
 import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
 
@@ -56,7 +56,7 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", roboto.variable)}
     >
       <body>
-        <GoogleAnalytics />
+        <UmamiAnalytics />
         <ThemeProvider>
           <Toaster />
           <WelcomeDialog />
