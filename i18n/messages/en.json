@@ -334,6 +334,20 @@
     },
     "entries": [
       {
+        "id": "intl-language",
+        "version": "3.0.6",
+        "date": "2026-07-17",
+        "title": "Intl Language",
+        "description": "Today's update adds international language support so TwizzTools can be used in Indonesian and English.",
+        "changes": [
+          "Multi-language support powered by i18n",
+          "Indonesian and English language options",
+          "Homepage, navigation, tools, FAQ, settings, and changelog content translated",
+          "Changelog date format follows the active locale",
+          "Cross-language user experience made more consistent"
+        ]
+      },
+      {
         "id": "team-picker",
         "version": "3.0.5",
         "date": "2026-07-16",
