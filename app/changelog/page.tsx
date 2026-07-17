@@ -12,10 +12,20 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function ChangelogPage() {
+export default async function ChangelogPage() {
+  const t = await getTranslations('changelog');
+
   return (
     <div className="flex flex-1 flex-col p-4 lg:p-0">
-      <ChangelogContent />
+      <ChangelogContent
+        entries={t.raw('entries')}
+        labels={{
+          title: t('title'),
+          subtitle: t('subtitle'),
+          version: t('version'),
+          whatsIncluded: t('whatsIncluded'),
+        }}
+      />
     </div>
   )
 }

@@ -3,17 +3,13 @@
 import Image from "next/image"
 import { SidebarLeftIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { useTranslations } from "next-intl"
 
 import { Button } from "@/components/ui/button"
 import { useSidebar } from "@/components/ui/sidebar"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
-export function SiteHeader() {
+export function SiteHeader({ latestVersion }: { latestVersion: string }) {
   const { toggleSidebar } = useSidebar()
-  const t = useTranslations('changelog');
-  const changelogEntries = t.raw('entries') as Array<{ version: string }>;
-  const latestVersion = changelogEntries[0]?.version ?? "0.0.0"
 
   return (
     <header className="sticky top-0 z-50 flex w-full items-center bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

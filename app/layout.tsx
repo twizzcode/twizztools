@@ -9,7 +9,7 @@ import { SiteHeader } from "@/components/sidebar/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { MobileNav } from "@/components/mobile-nav"
-import { WelcomeDialog } from "@/components/welcome-dialog"
+import { WelcomeDialogLoader } from "@/components/welcome-dialog-loader"
 import { UmamiAnalytics } from "@/components/umami-analytics"
 import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
@@ -52,6 +52,11 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const messages = await getMessages();
+  const changelogEntries = messages.changelog.entries as Array<{ version: string }>;
+  const latestVersion = changelogEntries[0]?.version ?? "0.0.0";
+  const clientMessages = {
+    nav: messages.nav,
+  };
 
   return (
     <html
@@ -60,14 +65,14 @@ export default async function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", roboto.variable)}
     >
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={clientMessages}>
           <UmamiAnalytics />
           <ThemeProvider>
             <Toaster />
-            <WelcomeDialog />
+            <WelcomeDialogLoader />
             <div className="h-svh overflow-hidden [--header-height:calc(--spacing(14))]">
               <SidebarProvider className="flex h-full min-h-0 w-full flex-col overflow-hidden">
-                <SiteHeader />
+                <SiteHeader latestVersion={latestVersion} />
                 <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 overflow-hidden pb-16 md:pb-0">
                   <AppSidebar />
                   <SidebarInset className="border-r">{children}</SidebarInset>

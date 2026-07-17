@@ -2,32 +2,43 @@
 
 import * as React from "react"
 import Image from "next/image"
-import { useTranslations } from "next-intl"
-
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 import { formatChangelogDate } from "@/lib/changelog"
 
-function VersionBadge({ version }: { version: string }) {
-  const t = useTranslations('changelog');
+function VersionBadge({ label, version }: { label: string; version: string }) {
   return (
     <span className="inline-flex h-5 w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap rounded-4xl border border-transparent bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground transition-all">
-      {t('version')} {version}
+      {label} {version}
     </span>
   )
 }
 
-export function ChangelogContent() {
-  const t = useTranslations('changelog');
-  const changelogEntries = t.raw('entries') as Array<{
-    id: string;
-    version: string;
-    date: string;
-    title: string;
-    description: string;
-    changes: string[];
-    image?: { src: string; alt: string };
-  }>;
+type ChangelogEntry = {
+  id: string
+  version: string
+  date: string
+  title: string
+  description: string
+  changes: string[]
+  image?: { src: string; alt: string }
+}
+
+type ChangelogLabels = {
+  title: string
+  subtitle: string
+  version: string
+  whatsIncluded: string
+}
+
+export function ChangelogContent({
+  entries,
+  labels,
+}: {
+  entries: ChangelogEntry[]
+  labels: ChangelogLabels
+}) {
+  const changelogEntries = entries
   
   const [activeEntry, setActiveEntry] = React.useState(0)
   const rootRef = React.useRef<HTMLDivElement>(null)
@@ -126,19 +137,19 @@ export function ChangelogContent() {
       <div ref={rootRef} className="container relative flex flex-col lg:flex-row">
       <div className="mb-12 lg:hidden">
         <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-          {t('title')}
+          {labels.title}
         </h1>
         <p className="text-base text-muted-foreground md:text-lg">
-          {t('subtitle')}
+          {labels.subtitle}
         </p>
         <Separator className="mt-8" />
       </div>
 
       <aside className="sticky top-0 hidden h-fit w-72 overflow-visible lg:px-6 pt-4 lg:block lg:pt-6">
         <div className="mb-10">
-          <h1 className="mb-3 text-3xl font-bold tracking-tight">{t('title')}</h1>
+          <h1 className="mb-3 text-3xl font-bold tracking-tight">{labels.title}</h1>
           <p className="text-base text-muted-foreground">
-            {t('subtitle')}
+            {labels.subtitle}
           </p>
         </div>
         <Separator className="mb-6" />
@@ -157,7 +168,7 @@ export function ChangelogContent() {
                 >
                   <span className="text-sm">{entry.title}</span>
                   <span className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <span className="font-medium">{t('version')} {entry.version}</span>
+                    <span className="font-medium">{labels.version} {entry.version}</span>
                     <span>•</span>
                     <span>{formatChangelogDate(entry.date)}</span>
                   </span>
@@ -177,7 +188,7 @@ export function ChangelogContent() {
               className="relative flex flex-col gap-6 border-l-4 border-l-border/30 pl-4 lg:pl-6 transition-colors hover:border-l-border md:gap-8"
             >
               <div className="flex flex-wrap items-center gap-3">
-                <VersionBadge version={entry.version} />
+                <VersionBadge label={labels.version} version={entry.version} />
                 <span className="text-xs font-medium text-muted-foreground">
                   {formatChangelogDate(entry.date)}
                 </span>
@@ -190,7 +201,7 @@ export function ChangelogContent() {
                   {entry.description}
                 </p>
                 <div className="mt-6 rounded-lg border bg-muted/30 p-5">
-                  <h3 className="mb-3 text-sm font-medium">{t('whatsIncluded')}</h3>
+                  <h3 className="mb-3 text-sm font-medium">{labels.whatsIncluded}</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     {entry.changes.map((change, index) => (
                       <li key={index} className="flex items-start">
