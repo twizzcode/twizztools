@@ -1,0 +1,58 @@
+{
+  "title": "AI Caption Generator",
+  "subtitle": "Generate engaging social media captions with AI",
+  "dropImage": "Drop image di sini",
+  "orClick": "atau klik buat pilih file (Max 20MB)",
+  "generating": "Generating captions...",
+  "theme": "Theme",
+  "themes": {
+    "personal": "Personal",
+    "organization": "Organization",
+    "promotion": "Promotion",
+    "event": "Event",
+    "education": "Education"
+  },
+  "tone": "Tone",
+  "tones": {
+    "casual": "Casual",
+    "formal": "Formal",
+    "inspirational": "Inspirational",
+    "professional": "Professional",
+    "friendly": "Friendly"
+  },
+  "length": "Length",
+  "lengths": {
+    "short": "Pendek",
+    "medium": "Sedang",
+    "long": "Panjang"
+  },
+  "writingStyle": "Writing Style",
+  "writingStyles": {
+    "storytelling": "Storytelling",
+    "informative": "Informative",
+    "persuasive": "Persuasive",
+    "reflective": "Reflective"
+  },
+  "language": "Language",
+  "languages": {
+    "english": "🇺🇸 English",
+    "indonesian": "🇮🇩 Bahasa Indonesia"
+  },
+  "includeEmotions": "Include Emotions",
+  "customPrompt": "Custom Prompt",
+  "customPromptPlaceholder": "e.g. Mention sustainability, Include call-to-action, Focus on benefits...",
+  "customPromptHint": "Add specific instructions to customize the caption generation",
+  "includeFooter": "Include Footer",
+  "selectFooter": "Select a footer",
+  "manageFooters": "Manage Footers",
+  "generate": "Generate Captions",
+  "changeImage": "Ganti gambar",
+  "usageLimit": "Usage: {used}/{limit} today",
+  "resetIn": "Reset in {time}",
+  "dailyLimitReached": "Daily limit reached. Try again tomorrow!",
+  "generateSuccess": "Captions generated successfully!",
+  "copySuccess": "Caption copied!",
+  "noResults": "No captions generated yet",
+  "generateAgain": "Generate Again",
+  "error": "Failed to generate captions"
+}

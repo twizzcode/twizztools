@@ -1,0 +1,26 @@
+{
+  "title": "Instagram Image Cutter",
+  "subtitle": "Cut images into Grid, Carousel, or Custom for Instagram feed",
+  "dropImage": "Drop image here",
+  "orClick": "or click to select file",
+  "typeOfCut": "Type of Cut",
+  "modes": {
+    "grid": "Grid",
+    "carousel": "Carousel",
+    "custom": "Custom"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "typeOfGrid": "Type of Grid",
+  "gapTypes": {
+    "withGap": "With Gap",
+    "noGap": "No Gap"
+  },
+  "recommendation": "Recommendation",
+  "crop": "Crop",
+  "cropping": "Cropping...",
+  "reset": "Reset",
+  "downloadAll": "Download all",
+  "downloadResult": "Download result {number}",
+  "backToCrop": "Back"
+}

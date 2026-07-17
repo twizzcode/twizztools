@@ -1,167 +1,125 @@
-# Best Practice: Struktur i18n untuk Next.js dengan next-intl
+# i18n TwizzTools
 
-## Struktur Folder
-```
+## Struktur saat ini
+
+```txt
+app/
+├── [locale]/          # Semua page UI
+└── api/               # API routes tetap di luar [locale]
+
 i18n/
-├── messages/
-│   ├── id.json    # Bahasa Indonesia
-│   └── en.json    # English
-└── request.ts     # Config next-intl
+├── messages.ts        # Loader namespace per locale
+├── navigation.ts      # Link/useRouter/usePathname next-intl
+├── request.ts         # Config request next-intl
+├── routing.ts         # locales + localePrefix
+└── messages/
+    ├── en.json        # Legacy/full fallback
+    ├── id.json        # Legacy/full fallback
+    ├── en/
+    │   ├── nav.json
+    │   ├── home.json
+    │   └── ...
+    └── id/
+        ├── nav.json
+        ├── home.json
+        └── ...
 ```
 
-## Cara Penggunaan
+## Routing
 
-### 1. Client Components
+Pakai `localePrefix: "as-needed"`:
+
+- Default locale `id`: `/`, `/faq`, `/settings`
+- English `en`: `/en`, `/en/faq`, `/en/settings`
+
+Config utama ada di `i18n/routing.ts` dan `middleware.ts`.
+
+## Navigation
+
+Untuk internal navigation, pakai wrapper dari `@/i18n/navigation`.
+
 ```tsx
-'use client';
-import { useTranslations } from 'next-intl';
+import { Link, usePathname, useRouter } from "@/i18n/navigation"
+```
 
-export function MyComponent() {
-  const t = useTranslations('namespace');
-  return <div>{t('key')}</div>;
+Jangan pakai `next/link` atau `next/navigation` untuk route internal yang perlu locale.
+
+## Messages
+
+Jangan pass full locale JSON ke `NextIntlClientProvider`.
+
+Pakai namespace loader:
+
+```tsx
+import { getNamespaceMessages } from "@/i18n/messages"
+
+const messages = await getNamespaceMessages(["nav"])
+```
+
+Provider harus route-specific dan kecil:
+
+```tsx
+<NextIntlClientProvider messages={{ nav: messages.nav }}>
+  {children}
+</NextIntlClientProvider>
+```
+
+## Client Components
+
+Client component tetap pakai `useTranslations`, tapi pastikan namespace sudah diprovide oleh layout route terdekat.
+
+```tsx
+"use client"
+
+import { useTranslations } from "next-intl"
+
+export function Example() {
+  const t = useTranslations("nav")
+  return <span>{t("home")}</span>
 }
 ```
 
-### 2. Server Components
-```tsx
-import { useTranslations } from 'next-intl';
+## Server Pages
 
-export default function MyPage() {
-  const t = useTranslations('namespace');
-  return <div>{t('key')}</div>;
+Untuk server page, baca namespace object langsung. Hindari `getMessages()` dan `getTranslations()` kalau tidak perlu.
+
+```tsx
+import { getNamespaceMessages } from "@/i18n/messages"
+
+export default async function Page() {
+  const messages = await getNamespaceMessages(["settings"])
+  const settings = messages.settings as SettingsMessages
+
+  return <h1>{settings.title}</h1>
 }
 ```
 
-### 3. Metadata (Server-side)
-```tsx
-import { getTranslations } from 'next-intl/server';
+## Metadata
 
+Metadata juga ambil dari namespace split.
+
+```tsx
 export async function generateMetadata() {
-  const t = await getTranslations('metadata');
-  return {
-    title: t('title'),
-    description: t('description'),
-  };
+  const messages = await getNamespaceMessages(["faq"])
+  const faq = messages.faq as { metadata: Metadata }
+
+  return faq.metadata
 }
 ```
 
-## Struktur JSON Translation
+## Tambah namespace baru
 
-Gunakan namespace untuk organisasi yang lebih baik:
+1. Tambah file:
+   - `i18n/messages/id/{namespace}.json`
+   - `i18n/messages/en/{namespace}.json`
+2. Update loader di `i18n/messages.ts` untuk `id` dan `en`.
+3. Jika dipakai client, provide namespace di layout route terdekat.
+4. Jika dipakai link internal, pakai `@/i18n/navigation`.
 
-```json
-{
-  "home": {
-    "title": "...",
-    "description": "..."
-  },
-  "nav": {
-    "home": "...",
-    "settings": "..."
-  },
-  "metadata": {
-    "title": "...",
-    "description": "..."
-  }
-}
-```
+## Prinsip performa
 
-## Language Switcher
-
-Simpan preferensi bahasa di cookie untuk persistence:
-
-```tsx
-'use client';
-import { useLocale } from 'next-intl';
-
-export function LanguageSwitcher() {
-  const locale = useLocale();
-  
-  function changeLocale(newLocale: string) {
-    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
-    window.location.reload();
-  }
-  
-  return <button onClick={() => changeLocale('en')}>EN</button>;
-}
-```
-
-## Best Practice: Memisahkan Data & Content
-
-Untuk konten dinamis seperti changelog, pisahkan:
-
-### Data Structure (lib/changelog.ts)
-```typescript
-export interface ChangelogEntry {
-  id: string           // ← Translation key
-  version: string
-  date: string
-  changeCount: number  // ← Jumlah items
-  image?: { src, alt }
-}
-```
-
-### Translations (i18n/messages/[locale].json)
-```json
-{
-  "changelog": {
-    "entries": {
-      "new-feature": {
-        "title": "New Feature",
-        "description": "Description...",
-        "changes": ["Change 1", "Change 2"]
-      }
-    }
-  }
-}
-```
-
-### Usage in Component
-```tsx
-const t = useTranslations('changelog');
-return (
-  <div>
-    <h2>{t(`entries.${entry.id}.title`)}</h2>
-    <p>{t(`entries.${entry.id}.description`)}</p>
-    <ul>
-      {Array.from({ length: entry.changeCount }).map((_, i) => (
-        <li key={i}>{t(`entries.${entry.id}.changes.${i}`)}</li>
-      ))}
-    </ul>
-  </div>
-);
-```
-
-## Menambah Konten Baru
-
-### 1. Tambah struktur di `lib/[feature].ts`:
-```typescript
-{
-  id: "my-new-entry",
-  version: "1.0.0",
-  date: "2026-07-17",
-  changeCount: 3
-}
-```
-
-### 2. Tambah translations di `i18n/messages/id.json` & `en.json`:
-```json
-{
-  "entries": {
-    "my-new-entry": {
-      "title": "Judul",
-      "description": "Deskripsi",
-      "changes": ["Item 1", "Item 2", "Item 3"]
-    }
-  }
-}
-```
-
-## Tips
-
-1. **Namespace yang jelas**: Pisahkan translations berdasarkan fitur/halaman
-2. **Reusable keys**: Gunakan namespace `common` untuk text yang sering dipakai
-3. **Consistent naming**: Gunakan camelCase untuk keys
-4. **Type safety**: Next-intl support TypeScript types
-5. **Lazy loading**: Messages hanya di-load sesuai locale yang aktif
-6. **Data vs Content**: Pisahkan struktur data (metadata) dan konten (text)
+- Load namespace yang dipakai saja.
+- Jangan kirim full JSON ke client.
+- Taruh provider sedekat mungkin dengan route yang butuh.
+- Server-only content tidak perlu masuk `NextIntlClientProvider`.
+- API routes tetap di luar `app/[locale]`.

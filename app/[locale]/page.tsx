@@ -1,34 +1,52 @@
 import type { Metadata } from "next"
 import { WhatsappIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { Link } from "@/i18n/navigation"
+import { getNamespaceMessages } from "@/i18n/messages"
+
+type HomeMessages = {
+  title: string
+  description: string
+  feedback: string
+  imageCutter: { title: string; description: string }
+  convertImage: { title: string; description: string }
+  reelsMaker: { title: string; description: string }
+  aiCaptions: { title: string; description: string }
+  teamPicker: { title: string; description: string }
+}
+
+type MetadataMessages = {
+  title: string
+  description: string
+}
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('metadata');
+  const messages = await getNamespaceMessages(["metadata"])
+  const metadata = messages.metadata as MetadataMessages
   
   return {
-    title: t('title'),
-    description: t('description'),
+    title: metadata.title,
+    description: metadata.description,
     openGraph: {
-      title: t('title'),
-      description: t('description'),
+      title: metadata.title,
+      description: metadata.description,
     },
   };
 }
 
-export default function HomePage() {
-  const t = useTranslations('home');
+export default async function HomePage() {
+  const messages = await getNamespaceMessages(["home"])
+  const home = messages.home as HomeMessages
   
   return (
     <div className="flex flex-1 flex-col items-center justify-center p-4">
       <div className="max-w-2xl w-full text-center space-y-6">
-        <h1 className="text-4xl font-bold">{t('title')}</h1>
+        <h1 className="text-4xl font-bold">{home.title}</h1>
         <p className="text-lg text-muted-foreground">
-          {t('description')}
+          {home.description}
         </p>
         <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 mt-8">
-          <a
+          <Link
             href="/cutter"
             className="flex items-center gap-3 rounded-lg border border-sidebar-border/60 bg-sidebar-accent/30 p-2 hover:bg-accent transition-colors"
           >
@@ -38,13 +56,13 @@ export default function HomePage() {
               </svg>
             </div>
             <div className="grid min-w-0 flex-1 text-left leading-tight">
-              <span className="truncate font-medium">{t('imageCutter.title')}</span>
+              <span className="truncate font-medium">{home.imageCutter.title}</span>
               <span className="truncate text-xs text-muted-foreground">
-                {t('imageCutter.description')}
+                {home.imageCutter.description}
               </span>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/convert-image"
             className="flex items-center gap-3 rounded-lg border border-sidebar-border/60 bg-sidebar-accent/30 p-2 hover:bg-accent transition-colors"
           >
@@ -54,13 +72,13 @@ export default function HomePage() {
               </svg>
             </div>
             <div className="grid min-w-0 flex-1 text-left leading-tight">
-              <span className="truncate font-medium">{t('convertImage.title')}</span>
+              <span className="truncate font-medium">{home.convertImage.title}</span>
               <span className="truncate text-xs text-muted-foreground">
-                {t('convertImage.description')}
+                {home.convertImage.description}
               </span>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/reels"
             className="flex items-center gap-3 rounded-lg border border-sidebar-border/60 bg-sidebar-accent/30 p-2 hover:bg-accent transition-colors"
           >
@@ -70,13 +88,13 @@ export default function HomePage() {
               </svg>
             </div>
             <div className="grid min-w-0 flex-1 text-left leading-tight">
-              <span className="truncate font-medium">{t('reelsMaker.title')}</span>
+              <span className="truncate font-medium">{home.reelsMaker.title}</span>
               <span className="truncate text-xs text-muted-foreground">
-                {t('reelsMaker.description')}
+                {home.reelsMaker.description}
               </span>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/captions"
             className="flex items-center gap-3 rounded-lg border border-sidebar-border/60 bg-sidebar-accent/30 p-2 hover:bg-accent transition-colors"
           >
@@ -86,13 +104,13 @@ export default function HomePage() {
               </svg>
             </div>
             <div className="grid min-w-0 flex-1 text-left leading-tight">
-              <span className="truncate font-medium">{t('aiCaptions.title')}</span>
+              <span className="truncate font-medium">{home.aiCaptions.title}</span>
               <span className="truncate text-xs text-muted-foreground">
-                {t('aiCaptions.description')}
+                {home.aiCaptions.description}
               </span>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/team-picker"
             className="flex items-center gap-3 rounded-lg border border-sidebar-border/60 bg-sidebar-accent/30 p-2 hover:bg-accent transition-colors"
           >
@@ -102,12 +120,12 @@ export default function HomePage() {
               </svg>
             </div>
             <div className="grid min-w-0 flex-1 text-left leading-tight">
-              <span className="truncate font-medium">{t('teamPicker.title')}</span>
+              <span className="truncate font-medium">{home.teamPicker.title}</span>
               <span className="truncate text-xs text-muted-foreground">
-                {t('teamPicker.description')}
+                {home.teamPicker.description}
               </span>
             </div>
-          </a>
+          </Link>
         </div>
         <a
           href="https://chat.whatsapp.com/JAXMVJAdtZWKZI41ioOKLW"
@@ -116,7 +134,7 @@ export default function HomePage() {
           className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-sidebar-border/60 bg-sidebar-accent/30 px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
         >
           <HugeiconsIcon icon={WhatsappIcon} strokeWidth={2} className="size-4" />
-          {t('feedback')}
+          {home.feedback}
         </a>
       </div>
     </div>

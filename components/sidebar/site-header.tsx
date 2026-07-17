@@ -37,6 +37,9 @@ export function SiteHeader({ latestVersion }: { latestVersion: string }) {
             <div className="hidden sm:block">
               <LanguageSwitcher />
             </div>
+            <div className="sm:hidden">
+              <LanguageSwitcher compact />
+            </div>
             <Button
               className="flex h-8 w-8 md:hidden"
               variant="ghost"

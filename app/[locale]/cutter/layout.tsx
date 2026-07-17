@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { NextIntlClientProvider } from "next-intl"
-import { getMessages } from "next-intl/server"
+import { getNamespaceMessages } from "@/i18n/messages"
 
 export const metadata: Metadata = {
   title: "Image Cutter - Cut Images for Instagram | TwizzTools",
@@ -17,7 +17,7 @@ export default async function CutterLayout({
 }: {
   children: React.ReactNode
 }) {
-  const messages = await getMessages()
+  const messages = await getNamespaceMessages(["cutter"])
 
   return (
     <NextIntlClientProvider messages={{ cutter: messages.cutter }}>

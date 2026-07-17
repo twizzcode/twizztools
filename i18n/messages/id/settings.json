@@ -1,0 +1,25 @@
+{
+  "title": "Pengaturan",
+  "subtitle": "Halaman dummy. Struktur siap, fitur belum aktif.",
+  "metadata": {
+    "title": "Pengaturan - TwizzTools",
+    "description": "Pengaturan TwizzTools."
+  },
+  "sections": [
+    {
+      "title": "Akun",
+      "description": "Profil, preferensi, dan akses akun.",
+      "status": "Segera hadir"
+    },
+    {
+      "title": "Tampilan",
+      "description": "Tema, layout, dan preferensi tampilan.",
+      "status": "Segera hadir"
+    },
+    {
+      "title": "API & Integrasi",
+      "description": "Kelola koneksi layanan eksternal dan token.",
+      "status": "Segera hadir"
+    }
+  ]
+}

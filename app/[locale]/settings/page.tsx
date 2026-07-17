@@ -1,13 +1,11 @@
 import type { Metadata } from "next"
-import { getTranslations } from "next-intl/server"
+import { getNamespaceMessages } from "@/i18n/messages"
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("settings.metadata")
+  const messages = await getNamespaceMessages(["settings"])
+  const settings = messages.settings as SettingsMessages
 
-  return {
-    title: t("title"),
-    description: t("description"),
-  }
+  return settings.metadata
 }
 
 type SettingSection = {
@@ -16,19 +14,26 @@ type SettingSection = {
   status: string
 }
 
+type SettingsMessages = {
+  title: string
+  subtitle: string
+  metadata: Metadata
+  sections: SettingSection[]
+}
+
 export default async function SettingsPage() {
-  const t = await getTranslations("settings")
-  const settingSections = t.raw("sections") as SettingSection[]
+  const messages = await getNamespaceMessages(["settings"])
+  const settings = messages.settings as SettingsMessages
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 lg:p-6">
       <div className="rounded-xl border border-border/60 bg-card p-6">
-        <h1 className="text-2xl font-semibold">{t("title")}</h1>
-        <p className="mt-2 text-sm text-muted-foreground">{t("subtitle")}</p>
+        <h1 className="text-2xl font-semibold">{settings.title}</h1>
+        <p className="mt-2 text-sm text-muted-foreground">{settings.subtitle}</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {settingSections.map((section) => (
+        {settings.sections.map((section) => (
           <div
             key={section.title}
             className="rounded-xl border border-border/60 bg-muted/30 p-5"

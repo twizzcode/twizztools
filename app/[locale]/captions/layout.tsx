@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { NextIntlClientProvider } from "next-intl"
-import { getMessages } from "next-intl/server"
+import { getNamespaceMessages } from "@/i18n/messages"
 
 export const metadata: Metadata = {
   title: "AI Caption Generator - Twizz Tools",
@@ -18,7 +18,7 @@ export default async function CaptionsLayout({
 }: {
   children: React.ReactNode
 }) {
-  const messages = await getMessages()
+  const messages = await getNamespaceMessages(["captions"])
 
   return (
     <NextIntlClientProvider messages={{ captions: messages.captions }}>

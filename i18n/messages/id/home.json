@@ -1,0 +1,25 @@
+{
+  "title": "TwizzTools.my.id",
+  "description": "Koleksi tools untuk membantu workflow kreatif kamu",
+  "feedback": "Ada bug atau saran?",
+  "imageCutter": {
+    "title": "Image Cutter",
+    "description": "Potong gambar untuk Instagram Grid & Carousel"
+  },
+  "convertImage": {
+    "title": "Convert Image",
+    "description": "Ubah format dan kompres gambar"
+  },
+  "reelsMaker": {
+    "title": "Reels Maker",
+    "description": "Buat gambar format 9:16 untuk Instagram Reels"
+  },
+  "aiCaptions": {
+    "title": "AI Captions",
+    "description": "Generate caption dengan AI untuk social media"
+  },
+  "teamPicker": {
+    "title": "Team Picker",
+    "description": "Buat kelompok random dengan ketua"
+  }
+}

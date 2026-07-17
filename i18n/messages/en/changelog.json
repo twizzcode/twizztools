@@ -1,0 +1,99 @@
+{
+  "title": "Changelog",
+  "subtitle": "Get the latest updates and improvements to our platform.",
+  "version": "Version",
+  "whatsIncluded": "What's included:",
+  "metadata": {
+    "title": "Changelog - TwizzTools",
+    "description": "TwizzTools update history."
+  },
+  "entries": [
+    {
+      "id": "intl-language",
+      "version": "3.0.6",
+      "date": "2026-07-17",
+      "title": "Intl Language",
+      "description": "Today's update adds international language support so TwizzTools can be used in Indonesian and English.",
+      "changes": [
+        "Multi-language support powered by i18n",
+        "Indonesian and English language options",
+        "Homepage, navigation, tools, FAQ, settings, and changelog content translated",
+        "Changelog date format follows the active locale",
+        "Cross-language user experience made more consistent"
+      ]
+    },
+    {
+      "id": "team-picker",
+      "version": "3.0.5",
+      "date": "2026-07-16",
+      "title": "Team Picker",
+      "description": "Today's update adds Team Picker to help you select and randomize team members more quickly.",
+      "changes": [
+        "New Team Picker feature for determining team members",
+        "Team selection flow made faster and more practical",
+        "Navigation to Team Picker added for easy access",
+        "User experience improvements for collaboration workflow"
+      ]
+    },
+    {
+      "id": "convert-image",
+      "version": "3.0.4",
+      "date": "2026-07-16",
+      "title": "Convert Image",
+      "description": "The next update adds the Convert Image tool for image conversion and compression directly from your browser.",
+      "changes": [
+        "New Convert Image page for uploading multiple images",
+        "Convert PNG, JPEG, and WebP formats",
+        "Quality settings for JPEG and WebP compression",
+        "Download individual results or ZIP for multiple files",
+        "Convert Image shortcut added to homepage and sidebar"
+      ]
+    },
+    {
+      "id": "changelog-faq-theme",
+      "version": "3.0.3",
+      "date": "2026-07-15",
+      "title": "Changelog, FAQ, and Theme",
+      "description": "The next update will focus on product information pages, lightweight documentation, and theme experience.",
+      "changes": [
+        "Changelog page for product update history",
+        "FAQ for common user questions",
+        "Theme toggle for light and dark modes",
+        "Settings, Changelog, and FAQ navigation refinement",
+        "Copy, metadata, and content structure improvements"
+      ]
+    },
+    {
+      "id": "captions-generator",
+      "version": "3.0.2",
+      "date": "2026-07-15",
+      "title": "AI Captions Generator",
+      "description": "Adding AI Captions feature to help creators generate social media captions faster.",
+      "changes": [
+        "New Captions page to generate captions with AI",
+        "Tone, platform, language, and caption variation settings",
+        "Footer manager to save reusable CTAs, hashtags, and signatures",
+        "Local rate limit to keep usage safe",
+        "Google Analytics installed for homepage usage tracking"
+      ]
+    },
+    {
+      "id": "rebuild-twizztools",
+      "version": "3.0.1",
+      "date": "2026-07-14",
+      "title": "Rebuild TwizzCutter to TwizzTools",
+      "description": "TwizzCutter.com rebuilt into TwizzTools.my.id with a new foundation for creator tools collection.",
+      "changes": [
+        "Brand migration from TwizzCutter to TwizzTools",
+        "New domain TwizzTools.my.id",
+        "Image Cutter still available for Instagram grid and carousel",
+        "Reels Maker still available for 9:16 vertical content format",
+        "Dashboard, sidebar, and navigation layout rebuilt"
+      ],
+      "image": {
+        "src": "/changelog/3.0.1.webp",
+        "alt": "TwizzTools 3.0.1 dashboard preview"
+      }
+    }
+  ]
+}

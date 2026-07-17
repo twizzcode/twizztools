@@ -1,0 +1,92 @@
+{
+  "title": "Pertanyaan yang Sering Diajukan",
+  "subtitle": "Kalau kamu baru memakai TwizzTools atau ingin tahu cara kerja tiap fitur, panduan ini membantu kamu memahami tools gratis untuk workflow kreatif kamu.",
+  "metadata": {
+    "title": "FAQ - TwizzTools",
+    "description": "Pertanyaan yang sering diajukan tentang TwizzTools."
+  },
+  "categories": [
+    {
+      "id": "general",
+      "label": "Umum"
+    },
+    {
+      "id": "plansPricing",
+      "label": "Paket & Harga"
+    },
+    {
+      "id": "privacy",
+      "label": "Privasi"
+    },
+    {
+      "id": "responsibleAi",
+      "label": "AI Bertanggung Jawab"
+    }
+  ],
+  "items": {
+    "general": [
+      {
+        "question": "Apa itu TwizzTools?",
+        "answer": "TwizzTools adalah kumpulan tools gratis untuk membantu workflow kreatif, terutama konten Instagram."
+      },
+      {
+        "question": "Bagaimana cara mulai memakai TwizzTools?",
+        "answer": "Pilih tool yang kamu butuhkan dari halaman utama, lalu ikuti instruksi di halaman tool tersebut."
+      },
+      {
+        "question": "Platform apa yang didukung?",
+        "answer": "TwizzTools berjalan di browser modern pada desktop dan mobile."
+      },
+      {
+        "question": "Apakah ada aplikasi mobile?",
+        "answer": "Belum ada aplikasi mobile terpisah. Semua fitur bisa dipakai langsung lewat browser."
+      },
+      {
+        "question": "Bagaimana cara menghubungi support?",
+        "answer": "Gunakan kanal kontak yang tersedia di website atau repository proyek."
+      }
+    ],
+    "plansPricing": [
+      {
+        "question": "Apakah TwizzTools gratis?",
+        "answer": "Ya, semua fitur TwizzTools 100% gratis untuk digunakan tanpa batasan."
+      },
+      {
+        "question": "Apakah ada versi premium?",
+        "answer": "Saat ini belum ada rencana untuk versi premium. Semua tools akan tetap gratis."
+      },
+      {
+        "question": "Apakah perlu registrasi atau login?",
+        "answer": "Tidak perlu registrasi. Langsung akses dan pakai tool yang kamu butuhkan."
+      }
+    ],
+    "privacy": [
+      {
+        "question": "Apakah gambar yang saya upload disimpan?",
+        "answer": "Tidak. Semua proses editing dilakukan langsung di browser kamu. Gambar tidak dikirim ke server."
+      },
+      {
+        "question": "Apakah data saya aman?",
+        "answer": "Ya. Karena semua proses berjalan di browser, data kamu tidak meninggalkan perangkat kamu."
+      },
+      {
+        "question": "Apakah TwizzTools menggunakan cookies?",
+        "answer": "Hanya untuk analytics dan preferensi tema. Tidak ada data pribadi yang dikumpulkan."
+      }
+    ],
+    "responsibleAi": [
+      {
+        "question": "Apakah AI Caption Generator aman digunakan?",
+        "answer": "Ya. AI Caption menggunakan API resmi dari Google Gemini dengan rate limit untuk mencegah penyalahgunaan."
+      },
+      {
+        "question": "Apakah caption yang dihasilkan original?",
+        "answer": "AI menghasilkan caption berdasarkan konteks yang kamu berikan. Hasilnya unik, tapi tetap disarankan untuk review dan edit sesuai brand voice kamu."
+      },
+      {
+        "question": "Berapa limit generate caption per hari?",
+        "answer": "Maksimal 5 caption per hari untuk mencegah spam dan memastikan kualitas layanan tetap optimal."
+      }
+    ]
+  }
+}

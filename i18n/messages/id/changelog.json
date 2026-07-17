@@ -1,0 +1,99 @@
+{
+  "title": "Changelog",
+  "subtitle": "Dapatkan update dan peningkatan terbaru untuk platform kami.",
+  "version": "Versi",
+  "whatsIncluded": "Yang termasuk:",
+  "metadata": {
+    "title": "Changelog - TwizzTools",
+    "description": "Riwayat update TwizzTools."
+  },
+  "entries": [
+    {
+      "id": "intl-language",
+      "version": "3.0.6",
+      "date": "2026-07-17",
+      "title": "Intl Language",
+      "description": "Update hari ini menambahkan dukungan bahasa internasional agar TwizzTools bisa digunakan dalam Bahasa Indonesia dan English.",
+      "changes": [
+        "Dukungan multi bahasa berbasis i18n",
+        "Pilihan Bahasa Indonesia dan English",
+        "Konten halaman utama, navigasi, tools, FAQ, settings, dan changelog diterjemahkan",
+        "Format tanggal changelog mengikuti locale aktif",
+        "Pengalaman pengguna lintas bahasa dibuat lebih konsisten"
+      ]
+    },
+    {
+      "id": "team-picker",
+      "version": "3.0.5",
+      "date": "2026-07-16",
+      "title": "Team Picker",
+      "description": "Update hari ini menambahkan Team Picker untuk membantu memilih dan mengacak anggota tim dengan lebih cepat.",
+      "changes": [
+        "Fitur Team Picker baru untuk menentukan anggota tim",
+        "Alur pemilihan tim dibuat lebih cepat dan praktis",
+        "Navigasi ke Team Picker ditambahkan agar mudah diakses",
+        "Penyempurnaan pengalaman pengguna untuk workflow kolaborasi"
+      ]
+    },
+    {
+      "id": "convert-image",
+      "version": "3.0.4",
+      "date": "2026-07-16",
+      "title": "Convert Image",
+      "description": "Update berikutnya menambahkan tool Convert Image untuk konversi dan kompresi gambar langsung dari browser.",
+      "changes": [
+        "Halaman Convert Image baru untuk upload banyak gambar",
+        "Konversi format PNG, JPEG, dan WebP",
+        "Pengaturan kualitas untuk kompresi JPEG dan WebP",
+        "Download hasil satuan atau ZIP untuk banyak file",
+        "Shortcut Convert Image ditambahkan ke halaman utama dan sidebar"
+      ]
+    },
+    {
+      "id": "changelog-faq-theme",
+      "version": "3.0.3",
+      "date": "2026-07-15",
+      "title": "Changelog, FAQ, dan Theme",
+      "description": "Update berikutnya akan fokus ke halaman informasi produk, dokumentasi ringan, dan pengalaman tema.",
+      "changes": [
+        "Halaman Changelog untuk riwayat update produk",
+        "FAQ untuk pertanyaan umum pengguna",
+        "Theme toggle untuk mode terang dan gelap",
+        "Perapian navigasi Settings, Changelog, dan FAQ",
+        "Penyempurnaan copy, metadata, dan struktur konten"
+      ]
+    },
+    {
+      "id": "captions-generator",
+      "version": "3.0.2",
+      "date": "2026-07-15",
+      "title": "AI Captions Generator",
+      "description": "Menambahkan fitur AI Captions untuk membantu kreator membuat caption social media lebih cepat.",
+      "changes": [
+        "Halaman Captions baru untuk generate caption dengan AI",
+        "Pengaturan tone, platform, bahasa, dan jumlah variasi caption",
+        "Footer manager untuk menyimpan CTA, hashtag, dan signature reusable",
+        "Rate limit lokal untuk menjaga penggunaan tetap aman",
+        "Google Analytics dipasang untuk tracking penggunaan halaman utama"
+      ]
+    },
+    {
+      "id": "rebuild-twizztools",
+      "version": "3.0.1",
+      "date": "2026-07-14",
+      "title": "Rebuild TwizzCutter ke TwizzTools",
+      "description": "TwizzCutter.com dibangun ulang menjadi TwizzTools.my.id dengan fondasi baru untuk kumpulan tools kreator.",
+      "changes": [
+        "Migrasi brand dari TwizzCutter ke TwizzTools",
+        "Domain baru TwizzTools.my.id",
+        "Image Cutter tetap tersedia untuk grid dan carousel Instagram",
+        "Reels Maker tetap tersedia untuk format konten vertikal 9:16",
+        "Layout dashboard, sidebar, dan navigasi dibangun ulang"
+      ],
+      "image": {
+        "src": "/changelog/3.0.1.webp",
+        "alt": "TwizzTools 3.0.1 dashboard preview"
+      }
+    }
+  ]
+}

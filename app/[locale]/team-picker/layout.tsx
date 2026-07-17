@@ -1,12 +1,12 @@
 import { NextIntlClientProvider } from "next-intl"
-import { getMessages } from "next-intl/server"
+import { getNamespaceMessages } from "@/i18n/messages"
 
 export default async function TeamPickerLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const messages = await getMessages()
+  const messages = await getNamespaceMessages(["teamPicker"])
 
   return (
     <NextIntlClientProvider messages={{ teamPicker: messages.teamPicker }}>

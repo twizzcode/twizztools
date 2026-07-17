@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { NextIntlClientProvider } from "next-intl"
-import { getMessages } from "next-intl/server"
+import { getNamespaceMessages } from "@/i18n/messages"
 
 export const metadata: Metadata = {
   title: "Reels Maker - Create Instagram Reels Images | TwizzTools",
@@ -17,7 +17,7 @@ export default async function ReelsLayout({
 }: {
   children: React.ReactNode
 }) {
-  const messages = await getMessages()
+  const messages = await getNamespaceMessages(["reels"])
 
   return (
     <NextIntlClientProvider messages={{ reels: messages.reels }}>

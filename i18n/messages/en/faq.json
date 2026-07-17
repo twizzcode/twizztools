@@ -1,0 +1,92 @@
+{
+  "title": "Frequently Asked Questions",
+  "subtitle": "If you are new to TwizzTools or want to understand how each feature works, this guide helps you understand free tools for your creative workflow.",
+  "metadata": {
+    "title": "FAQ - TwizzTools",
+    "description": "Frequently asked questions about TwizzTools."
+  },
+  "categories": [
+    {
+      "id": "general",
+      "label": "General"
+    },
+    {
+      "id": "plansPricing",
+      "label": "Plans & Pricing"
+    },
+    {
+      "id": "privacy",
+      "label": "Privacy"
+    },
+    {
+      "id": "responsibleAi",
+      "label": "Responsible AI"
+    }
+  ],
+  "items": {
+    "general": [
+      {
+        "question": "What is TwizzTools?",
+        "answer": "TwizzTools is a collection of free tools to help creative workflows, especially Instagram content."
+      },
+      {
+        "question": "How do I start using TwizzTools?",
+        "answer": "Choose the tool you need from the homepage, then follow the instructions on that tool page."
+      },
+      {
+        "question": "Which platforms are supported?",
+        "answer": "TwizzTools runs in modern browsers on desktop and mobile."
+      },
+      {
+        "question": "Is there a mobile app?",
+        "answer": "There is no separate mobile app yet. All features can be used directly from the browser."
+      },
+      {
+        "question": "How do I contact support?",
+        "answer": "Use the contact channel available on the website or project repository."
+      }
+    ],
+    "plansPricing": [
+      {
+        "question": "Is TwizzTools free?",
+        "answer": "Yes, all TwizzTools features are 100% free to use without limits."
+      },
+      {
+        "question": "Is there a premium version?",
+        "answer": "There are currently no plans for a premium version. All tools will remain free."
+      },
+      {
+        "question": "Do I need to register or log in?",
+        "answer": "No registration is required. Access and use the tool you need directly."
+      }
+    ],
+    "privacy": [
+      {
+        "question": "Are uploaded images stored?",
+        "answer": "No. All editing processes run directly in your browser. Images are not sent to the server."
+      },
+      {
+        "question": "Is my data safe?",
+        "answer": "Yes. Because all processes run in the browser, your data does not leave your device."
+      },
+      {
+        "question": "Does TwizzTools use cookies?",
+        "answer": "Only for analytics and theme preferences. No personal data is collected."
+      }
+    ],
+    "responsibleAi": [
+      {
+        "question": "Is AI Caption Generator safe to use?",
+        "answer": "Yes. AI Caption uses the official Google Gemini API with rate limits to prevent misuse."
+      },
+      {
+        "question": "Are generated captions original?",
+        "answer": "AI generates captions based on the context you provide. Results are unique, but you should still review and edit them to match your brand voice."
+      },
+      {
+        "question": "What is the daily caption generation limit?",
+        "answer": "Maximum 5 captions per day to prevent spam and keep service quality optimal."
+      }
+    ]
+  }
+}

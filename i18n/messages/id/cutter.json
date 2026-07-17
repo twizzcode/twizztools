@@ -1,0 +1,26 @@
+{
+  "title": "Instagram Image Cutter",
+  "subtitle": "Potong gambar jadi Grid, Carousel, atau Custom untuk feed Instagram",
+  "dropImage": "Drop image di sini",
+  "orClick": "atau klik buat pilih file",
+  "typeOfCut": "Type of Cut",
+  "modes": {
+    "grid": "Grid",
+    "carousel": "Carousel",
+    "custom": "Custom"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "typeOfGrid": "Type of Grid",
+  "gapTypes": {
+    "withGap": "With Gap",
+    "noGap": "No Gap"
+  },
+  "recommendation": "Rekomendasi",
+  "crop": "Crop",
+  "cropping": "Cropping...",
+  "reset": "Reset",
+  "downloadAll": "Download semua",
+  "downloadResult": "Download hasil {number}",
+  "backToCrop": "Back"
+}

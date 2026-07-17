@@ -1,0 +1,25 @@
+{
+  "title": "TwizzTools.my.id",
+  "description": "Collection of tools to help your creative workflow",
+  "feedback": "Bug or suggestion?",
+  "imageCutter": {
+    "title": "Image Cutter",
+    "description": "Cut images for Instagram Grid & Carousel"
+  },
+  "convertImage": {
+    "title": "Convert Image",
+    "description": "Convert format and compress images"
+  },
+  "reelsMaker": {
+    "title": "Reels Maker",
+    "description": "Create 9:16 images for Instagram Reels"
+  },
+  "aiCaptions": {
+    "title": "AI Captions",
+    "description": "Generate captions with AI for social media"
+  },
+  "teamPicker": {
+    "title": "Team Picker",
+    "description": "Create random groups with leaders"
+  }
+}

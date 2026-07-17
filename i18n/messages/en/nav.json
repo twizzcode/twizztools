@@ -1,0 +1,18 @@
+{
+  "home": "Home",
+  "imageCutter": "Image Cutter",
+  "imageCutterDesc": "Cut images for Instagram",
+  "reels": "Reels",
+  "reelsDesc": "Create Instagram Reels",
+  "captions": "Captions",
+  "captionsDesc": "AI Caption Generator",
+  "convertImage": "Convert Image",
+  "convertImageDesc": "Convert and compress image",
+  "teamPicker": "Team Picker",
+  "teamPickerDesc": "Random team generator",
+  "settings": "Settings",
+  "changelog": "Changelog",
+  "faq": "FAQ",
+  "menu": "Menu",
+  "cutter": "Cutter"
+}

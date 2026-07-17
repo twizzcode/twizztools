@@ -1,15 +1,12 @@
 import type { Metadata } from "next"
-import { getTranslations } from "next-intl/server"
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { getNamespaceMessages } from "@/i18n/messages"
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("faq.metadata")
+  const messages = await getNamespaceMessages(["faq"])
+  const faq = messages.faq as FAQMessages
 
-  return {
-    title: t("title"),
-    description: t("description"),
-  }
+  return faq.metadata
 }
 
 type Category = {
@@ -20,6 +17,14 @@ type Category = {
 type FAQ = {
   question: string
   answer: string
+}
+
+type FAQMessages = {
+  title: string
+  subtitle: string
+  metadata: Metadata
+  categories: Category[]
+  items: Record<string, FAQ[]>
 }
 
 function FAQList({ faqs }: { faqs: FAQ[] }) {
@@ -54,20 +59,19 @@ function FAQTabsContent({ category, faqs }: { category: Category; faqs: FAQ[] })
 }
 
 export default async function FAQPage() {
-  const t = await getTranslations("faq")
-  const categories = t.raw("categories") as Category[]
-  const faqsByCategory = t.raw("items") as Record<string, FAQ[]>
-  const defaultCategory = categories[0]?.id ?? "general"
+  const messages = await getNamespaceMessages(["faq"])
+  const faq = messages.faq as FAQMessages
+  const defaultCategory = faq.categories[0]?.id ?? "general"
 
   return (
     <div className="faq-page flex flex-1 flex-col p-4">
       <section className="mx-auto flex w-full max-w-6xl flex-col gap-10">
         <div className="px-6 text-center md:px-12 md:py-6">
           <h1 className="mx-auto max-w-3xl text-5xl leading-none font-black tracking-tight text-foreground md:text-7xl">
-            {t("title")}
+            {faq.title}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-sm font-medium text-muted-foreground md:text-base">
-            {t("subtitle")}
+            {faq.subtitle}
           </p>
         </div>
 
@@ -76,7 +80,7 @@ export default async function FAQPage() {
           className="hidden w-full items-start gap-16 md:flex lg:gap-28"
         >
           <TabsList className="flex h-auto min-w-60 flex-col gap-4 bg-transparent p-0 lg:min-w-90">
-            {categories.map((category) => (
+            {faq.categories.map((category) => (
               <TabsTrigger
                 key={category.id}
                 value={category.id}
@@ -88,11 +92,11 @@ export default async function FAQPage() {
           </TabsList>
 
           <div className="w-full pt-2">
-            {categories.map((category) => (
+            {faq.categories.map((category) => (
               <FAQTabsContent
                 key={category.id}
                 category={category}
-                faqs={faqsByCategory[category.id] ?? []}
+                faqs={faq.items[category.id] ?? []}
               />
             ))}
           </div>
@@ -100,15 +104,15 @@ export default async function FAQPage() {
 
         <Tabs defaultValue={defaultCategory} className="w-full md:hidden">
           <TabsList className="grid h-auto w-full grid-cols-2 gap-2">
-            {categories.map((category) => (
+            {faq.categories.map((category) => (
               <TabsTrigger key={category.id} value={category.id}>
                 {category.label}
               </TabsTrigger>
             ))}
           </TabsList>
-          {categories.map((category) => (
+          {faq.categories.map((category) => (
             <TabsContent key={category.id} value={category.id} className="mt-8">
-              <FAQList faqs={faqsByCategory[category.id] ?? []} />
+              <FAQList faqs={faq.items[category.id] ?? []} />
             </TabsContent>
           ))}
         </Tabs>

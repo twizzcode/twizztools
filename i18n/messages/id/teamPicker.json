@@ -1,0 +1,26 @@
+{
+  "title": "Team Picker",
+  "subtitle": "Buat kelompok acak dari daftar nama.",
+  "memberNames": "Nama anggota",
+  "placeholder": "Satu nama per baris",
+  "validNames": "nama valid",
+  "method": "Metode",
+  "numberOfTeams": "Jumlah kelompok",
+  "membersPerTeam": "Orang per kelompok",
+  "amount": "Jumlah",
+  "randomLeader": "Tentukan ketua random",
+  "shuffling": "Mengacak...",
+  "randomizeTeam": "Acak Team",
+  "restart": "Restart",
+  "exportImage": "Export Gambar",
+  "resultsPlaceholder": "Hasil pembagian kelompok akan muncul di sini.",
+  "team": "Kelompok",
+  "people": "orang",
+  "errors": {
+    "minNames": "Minimal 2 nama",
+    "duplicateNames": "Nama duplikat: {names}",
+    "invalidAmount": "Jumlah harus berupa angka bulat lebih dari 0",
+    "teamsExceed": "Jumlah kelompok melebihi jumlah nama",
+    "membersExceed": "Jumlah orang per kelompok melebihi jumlah nama"
+  }
+}

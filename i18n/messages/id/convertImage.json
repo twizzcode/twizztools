@@ -1,0 +1,39 @@
+{
+  "title": "Convert & Compress Images",
+  "subtitle": "Upload banyak gambar PNG, JPG, JPEG, atau WEBP",
+  "maxFiles": "Maksimal {max} file",
+  "dropImages": "Drop image di sini",
+  "orClick": "atau klik buat pilih banyak file",
+  "addMore": "Tambah image",
+  "format": "Output format",
+  "compress": "Compress",
+  "quality": "Quality",
+  "reading": "Membaca file...",
+  "convert": "Convert",
+  "convertAll": "Convert semua",
+  "downloadAll": "Download semua",
+  "downloadZip": "Download ZIP",
+  "download": "Download",
+  "back": "Back",
+  "clear": "Reset",
+  "converting": "Converting...",
+  "zipping": "Zipping...",
+  "details": {
+    "size": "Size",
+    "type": "Format",
+    "dimensions": "Pixel"
+  },
+  "results": {
+    "title": "Result",
+    "subtitle": "Preview dan download hasil convert",
+    "original": "Original",
+    "converted": "Converted",
+    "saved": "Selisih"
+  },
+  "errors": {
+    "tooManyFiles": "Terlalu banyak file. Maksimal {max} file.",
+    "fileTooLarge": "File terlalu besar. Maksimal {max}MB per file.",
+    "invalidType": "Tipe file tidak valid. Hanya gambar yang diperbolehkan.",
+    "conversionFailed": "Konversi gagal"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "title": "Team Picker",
+  "subtitle": "Create random groups from a list of names.",
+  "memberNames": "Member names",
+  "placeholder": "One name per line",
+  "validNames": "valid names",
+  "method": "Method",
+  "numberOfTeams": "Number of teams",
+  "membersPerTeam": "Members per team",
+  "amount": "Amount",
+  "randomLeader": "Assign random leader",
+  "shuffling": "Shuffling...",
+  "randomizeTeam": "Randomize Teams",
+  "restart": "Restart",
+  "exportImage": "Export Image",
+  "resultsPlaceholder": "Team division results will appear here.",
+  "team": "Team",
+  "people": "people",
+  "errors": {
+    "minNames": "Minimum 2 names required",
+    "duplicateNames": "Duplicate names: {names}",
+    "invalidAmount": "Amount must be an integer greater than 0",
+    "teamsExceed": "Number of teams exceeds number of names",
+    "membersExceed": "Members per team exceeds number of names"
+  }
+}

@@ -1,7 +1,6 @@
 "use client"
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { Link, usePathname } from "@/i18n/navigation"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Home01Icon, ScissorIcon, InstagramIcon, Menu01Icon, MessageMultiple01Icon } from "@hugeicons/core-free-icons"
 import { useSidebar } from "@/components/ui/sidebar"

@@ -1,0 +1,25 @@
+{
+  "title": "Settings",
+  "subtitle": "Placeholder page. Structure is ready, features are not active yet.",
+  "metadata": {
+    "title": "Settings - TwizzTools",
+    "description": "TwizzTools settings."
+  },
+  "sections": [
+    {
+      "title": "Account",
+      "description": "Profile, preferences, and account access.",
+      "status": "Coming soon"
+    },
+    {
+      "title": "Appearance",
+      "description": "Theme, layout, and display preferences.",
+      "status": "Coming soon"
+    },
+    {
+      "title": "API & Integrations",
+      "description": "Manage external service connections and tokens.",
+      "status": "Coming soon"
+    }
+  ]
+}

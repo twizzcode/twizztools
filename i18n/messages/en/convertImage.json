@@ -1,0 +1,39 @@
+{
+  "title": "Convert & Compress Images",
+  "subtitle": "Upload multiple PNG, JPG, JPEG, or WEBP images",
+  "maxFiles": "Maximum {max} files",
+  "dropImages": "Drop images here",
+  "orClick": "or click to select multiple files",
+  "addMore": "Add more",
+  "format": "Output format",
+  "compress": "Compress",
+  "quality": "Quality",
+  "reading": "Reading files...",
+  "convert": "Convert",
+  "convertAll": "Convert all",
+  "downloadAll": "Download all",
+  "downloadZip": "Download ZIP",
+  "download": "Download",
+  "back": "Back",
+  "clear": "Reset",
+  "converting": "Converting...",
+  "zipping": "Zipping...",
+  "details": {
+    "size": "Size",
+    "type": "Format",
+    "dimensions": "Dimensions"
+  },
+  "results": {
+    "title": "Results",
+    "subtitle": "Preview and download converted images",
+    "original": "Original",
+    "converted": "Converted",
+    "saved": "Difference"
+  },
+  "errors": {
+    "tooManyFiles": "Too many files. Maximum {max} files allowed.",
+    "fileTooLarge": "File too large. Maximum {max}MB per file.",
+    "invalidType": "Invalid file type. Only images allowed.",
+    "conversionFailed": "Conversion failed"
+  }
+}
