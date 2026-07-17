@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { useTheme } from "next-themes"
+import { useTranslations } from "next-intl"
 
 import { NavMain } from "@/components/sidebar/nav-main"
 import { NavSecondary } from "@/components/sidebar/nav-secondary"
@@ -24,7 +25,6 @@ import {
   HelpCircleIcon,
   Moon02Icon,
   Sun03Icon,
-  FavouriteIcon,
   GroupIcon,
 } from "@hugeicons/core-free-icons"
 
@@ -61,107 +61,74 @@ function SidebarThemeToggle() {
   )
 }
 
-const data = {
-  navMain: [
-    {
-      title: "Home",
-      url: "/",
-      description: "Homepage",
-      icon: (
-      <HugeiconsIcon icon={Home01Icon} strokeWidth={2} />
-      ),
-    },
-    {
-      title: "Image Cutter",
-      url: "/cutter",
-      description: "Cut images for Instagram",
-      icon: (
-      <HugeiconsIcon icon={ScissorIcon} strokeWidth={2} />
-      ),
-    },
-    {
-      title: "Reels",
-      url: "/reels",
-      description: "Create Instagram Reels",
-      icon: (
-        <HugeiconsIcon icon={InstagramIcon} strokeWidth={2} />
-      ),
-    },
-    {
-      title: "Captions",
-      url: "/captions",
-      description: "AI Caption Generator",
-      icon: (
-        <HugeiconsIcon icon={MessageMultiple01Icon} strokeWidth={2} />
-      ),
-    },
-    {
-      title: "Convert Image",
-      url: "/convert-image",
-      description: "Convert and compress image",
-      icon: (
-        <HugeiconsIcon icon={Image01Icon} strokeWidth={2} />
-      ),
-    },
-    {
-      title: "Team Picker",
-      url: "/team-picker",
-      description: "Random team generator",
-      icon: (
-        <HugeiconsIcon icon={GroupIcon} strokeWidth={2} />
-      ),
-    },
-  ],
-  navSecondary: [
-    {
-      title: "Settings",
-      url: "/settings",
-      icon: (
-        <HugeiconsIcon icon={Settings05Icon} strokeWidth={2} />
-      ),
-    },
-    {
-      title: "Changelog",
-      url: "/changelog",
-      icon: (
-        <HugeiconsIcon icon={NoteIcon} strokeWidth={2} />
-      ),
-    },
-    {
-      title: "FAQ",
-      url: "/faq",
-      icon: (
-        <HugeiconsIcon icon={HelpCircleIcon} strokeWidth={2} />
-      ),
-    },
-  ],
-}
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const t = useTranslations('nav');
+  
+  const navMain = React.useMemo(() => [
+    {
+      title: t('home'),
+      url: "/",
+      description: t('home'),
+      icon: <HugeiconsIcon icon={Home01Icon} strokeWidth={2} />,
+    },
+    {
+      title: t('imageCutter'),
+      url: "/cutter",
+      description: t('imageCutterDesc'),
+      icon: <HugeiconsIcon icon={ScissorIcon} strokeWidth={2} />,
+    },
+    {
+      title: t('reels'),
+      url: "/reels",
+      description: t('reelsDesc'),
+      icon: <HugeiconsIcon icon={InstagramIcon} strokeWidth={2} />,
+    },
+    {
+      title: t('captions'),
+      url: "/captions",
+      description: t('captionsDesc'),
+      icon: <HugeiconsIcon icon={MessageMultiple01Icon} strokeWidth={2} />,
+    },
+    {
+      title: t('convertImage'),
+      url: "/convert-image",
+      description: t('convertImageDesc'),
+      icon: <HugeiconsIcon icon={Image01Icon} strokeWidth={2} />,
+    },
+    {
+      title: t('teamPicker'),
+      url: "/team-picker",
+      description: t('teamPickerDesc'),
+      icon: <HugeiconsIcon icon={GroupIcon} strokeWidth={2} />,
+    },
+  ], [t]);
+
+  const navSecondary = React.useMemo(() => [
+    {
+      title: t('settings'),
+      url: "/settings",
+      icon: <HugeiconsIcon icon={Settings05Icon} strokeWidth={2} />,
+    },
+    {
+      title: t('changelog'),
+      url: "/changelog",
+      icon: <HugeiconsIcon icon={NoteIcon} strokeWidth={2} />,
+    },
+    {
+      title: t('faq'),
+      url: "/faq",
+      icon: <HugeiconsIcon icon={HelpCircleIcon} strokeWidth={2} />,
+    },
+  ], [t]);
+  
   return (
-    <Sidebar {...props}>
-      {/*<SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" render={<a href="#" />}>
-              <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                <HugeiconsIcon icon={CommandIcon} strokeWidth={2} className="size-4" />
-              </div>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">Acme Inc</span>
-                <span className="truncate text-xs">Enterprise</span>
-              </div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarHeader>*/}
+    <Sidebar {...props} className="border-l">
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        {/*<NavProjects projects={data.projects} />*/}
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavMain items={navMain} />
+        <NavSecondary items={navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter className="p-0">
-        {/*<div className="border-t" />*/}
-        <div className="space-y-3 px-4 pb-4 pt-3">
+        <div className="space-y-3 px-4 pb-4 pt-3 border-t">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <a
@@ -182,15 +149,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               </a>
             </div>
             <SidebarThemeToggle />
-          </div>
-          <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
-            <span>Made with</span>
-            <HugeiconsIcon
-              icon={FavouriteIcon}
-              strokeWidth={2}
-              className="size-3.5 text-red-500"
-            />
-            <span>by twizzcode</span>
           </div>
         </div>
       </SidebarFooter>

@@ -1,0 +1,411 @@
+{
+  "home": {
+    "title": "TwizzTools.my.id",
+    "description": "Collection of tools to help your creative workflow",
+    "feedback": "Bug or suggestion?",
+    "imageCutter": {
+      "title": "Image Cutter",
+      "description": "Cut images for Instagram Grid & Carousel"
+    },
+    "convertImage": {
+      "title": "Convert Image",
+      "description": "Convert format and compress images"
+    },
+    "reelsMaker": {
+      "title": "Reels Maker",
+      "description": "Create 9:16 images for Instagram Reels"
+    },
+    "aiCaptions": {
+      "title": "AI Captions",
+      "description": "Generate captions with AI for social media"
+    },
+    "teamPicker": {
+      "title": "Team Picker",
+      "description": "Create random groups with leaders"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "imageCutter": "Image Cutter",
+    "imageCutterDesc": "Cut images for Instagram",
+    "reels": "Reels",
+    "reelsDesc": "Create Instagram Reels",
+    "captions": "Captions",
+    "captionsDesc": "AI Caption Generator",
+    "convertImage": "Convert Image",
+    "convertImageDesc": "Convert and compress image",
+    "teamPicker": "Team Picker",
+    "teamPickerDesc": "Random team generator",
+    "settings": "Settings",
+    "changelog": "Changelog",
+    "faq": "FAQ",
+    "menu": "Menu",
+    "cutter": "Cutter"
+  },
+  "metadata": {
+    "title": "TwizzTools - Free Instagram Tools",
+    "description": "Free tools collection to help your creative workflow. Image cutter for Instagram Grid & Carousel, Reels maker, and AI Caption Generator.",
+    "rootTitle": "Twizz Tools - Image Cutter & Instagram Tools",
+    "rootDescription": "Free online tools for Instagram content creators. Cut images for carousel posts and create Instagram Reels with ease."
+  },
+  "common": {
+    "language": "Language"
+  },
+  "teamPicker": {
+    "title": "Team Picker",
+    "subtitle": "Create random groups from a list of names.",
+    "memberNames": "Member names",
+    "placeholder": "One name per line",
+    "validNames": "valid names",
+    "method": "Method",
+    "numberOfTeams": "Number of teams",
+    "membersPerTeam": "Members per team",
+    "amount": "Amount",
+    "randomLeader": "Assign random leader",
+    "shuffling": "Shuffling...",
+    "randomizeTeam": "Randomize Teams",
+    "restart": "Restart",
+    "exportImage": "Export Image",
+    "resultsPlaceholder": "Team division results will appear here.",
+    "team": "Team",
+    "people": "people",
+    "errors": {
+      "minNames": "Minimum 2 names required",
+      "duplicateNames": "Duplicate names: {names}",
+      "invalidAmount": "Amount must be an integer greater than 0",
+      "teamsExceed": "Number of teams exceeds number of names",
+      "membersExceed": "Members per team exceeds number of names"
+    }
+  },
+  "reels": {
+    "title": "Reels Image Maker",
+    "subtitle": "Convert images to 9:16 vertical format for Instagram Reels",
+    "dropImage": "Drop image here",
+    "orClick": "or click to select file",
+    "reelsMode": "Reels Mode",
+    "modes": {
+      "content": "Content",
+      "white": "White",
+      "black": "Black",
+      "custom": "Custom"
+    },
+    "blur": "Blur",
+    "customBackground": "Custom Background",
+    "exporting": "Exporting...",
+    "download": "Download",
+    "changeImage": "Change image"
+  },
+  "captions": {
+    "title": "AI Caption Generator",
+    "subtitle": "Generate engaging social media captions with AI",
+    "dropImage": "Drop image here",
+    "orClick": "or click to select file (Max 20MB)",
+    "generating": "Generating captions...",
+    "theme": "Theme",
+    "themes": {
+      "personal": "Personal",
+      "organization": "Organization",
+      "promotion": "Promotion",
+      "event": "Event",
+      "education": "Education"
+    },
+    "tone": "Tone",
+    "tones": {
+      "casual": "Casual",
+      "formal": "Formal",
+      "inspirational": "Inspirational",
+      "professional": "Professional",
+      "friendly": "Friendly"
+    },
+    "length": "Length",
+    "lengths": {
+      "short": "Short",
+      "medium": "Medium",
+      "long": "Long"
+    },
+    "writingStyle": "Writing Style",
+    "writingStyles": {
+      "storytelling": "Storytelling",
+      "informative": "Informative",
+      "persuasive": "Persuasive",
+      "reflective": "Reflective"
+    },
+    "language": "Language",
+    "languages": {
+      "english": "🇺🇸 English",
+      "indonesian": "🇮🇩 Bahasa Indonesia"
+    },
+    "includeEmotions": "Include Emotions",
+    "customPrompt": "Custom Prompt",
+    "customPromptPlaceholder": "e.g. Mention sustainability, Include call-to-action, Focus on benefits...",
+    "customPromptHint": "Add specific instructions to customize the caption generation",
+    "includeFooter": "Include Footer",
+    "selectFooter": "Select a footer",
+    "manageFooters": "Manage Footers",
+    "generate": "Generate Captions",
+    "changeImage": "Change image",
+    "usageLimit": "Usage: {used}/{limit} today",
+    "resetIn": "Reset in {time}",
+    "dailyLimitReached": "Daily limit reached. Try again tomorrow!",
+    "generateSuccess": "Captions generated successfully!",
+    "copySuccess": "Caption copied!",
+    "noResults": "No captions generated yet",
+    "generateAgain": "Generate Again",
+    "error": "Failed to generate captions"
+  },
+  "convertImage": {
+    "title": "Convert & Compress Images",
+    "subtitle": "Upload multiple PNG, JPG, JPEG, or WEBP images",
+    "maxFiles": "Maximum {max} files",
+    "dropImages": "Drop images here",
+    "orClick": "or click to select multiple files",
+    "addMore": "Add more",
+    "format": "Output format",
+    "compress": "Compress",
+    "quality": "Quality",
+    "reading": "Reading files...",
+    "convert": "Convert",
+    "convertAll": "Convert all",
+    "downloadAll": "Download all",
+    "downloadZip": "Download ZIP",
+    "download": "Download",
+    "back": "Back",
+    "clear": "Reset",
+    "converting": "Converting...",
+    "zipping": "Zipping...",
+    "details": {
+      "size": "Size",
+      "type": "Format",
+      "dimensions": "Dimensions"
+    },
+    "results": {
+      "title": "Results",
+      "subtitle": "Preview and download converted images",
+      "original": "Original",
+      "converted": "Converted",
+      "saved": "Difference"
+    },
+    "errors": {
+      "tooManyFiles": "Too many files. Maximum {max} files allowed.",
+      "fileTooLarge": "File too large. Maximum {max}MB per file.",
+      "invalidType": "Invalid file type. Only images allowed.",
+      "conversionFailed": "Conversion failed"
+    }
+  },
+  "cutter": {
+    "title": "Instagram Image Cutter",
+    "subtitle": "Cut images into Grid, Carousel, or Custom for Instagram feed",
+    "dropImage": "Drop image here",
+    "orClick": "or click to select file",
+    "typeOfCut": "Type of Cut",
+    "modes": {
+      "grid": "Grid",
+      "carousel": "Carousel",
+      "custom": "Custom"
+    },
+    "rows": "Rows",
+    "columns": "Columns",
+    "typeOfGrid": "Type of Grid",
+    "gapTypes": {
+      "withGap": "With Gap",
+      "noGap": "No Gap"
+    },
+    "recommendation": "Recommendation",
+    "crop": "Crop",
+    "cropping": "Cropping...",
+    "reset": "Reset",
+    "downloadAll": "Download all",
+    "downloadResult": "Download result {number}",
+    "backToCrop": "Back"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "If you are new to TwizzTools or want to understand how each feature works, this guide helps you understand free tools for your creative workflow.",
+    "metadata": {
+      "title": "FAQ - TwizzTools",
+      "description": "Frequently asked questions about TwizzTools."
+    },
+    "categories": [
+      { "id": "general", "label": "General" },
+      { "id": "plansPricing", "label": "Plans & Pricing" },
+      { "id": "privacy", "label": "Privacy" },
+      { "id": "responsibleAi", "label": "Responsible AI" }
+    ],
+    "items": {
+      "general": [
+        {
+          "question": "What is TwizzTools?",
+          "answer": "TwizzTools is a collection of free tools to help creative workflows, especially Instagram content."
+        },
+        {
+          "question": "How do I start using TwizzTools?",
+          "answer": "Choose the tool you need from the homepage, then follow the instructions on that tool page."
+        },
+        {
+          "question": "Which platforms are supported?",
+          "answer": "TwizzTools runs in modern browsers on desktop and mobile."
+        },
+        {
+          "question": "Is there a mobile app?",
+          "answer": "There is no separate mobile app yet. All features can be used directly from the browser."
+        },
+        {
+          "question": "How do I contact support?",
+          "answer": "Use the contact channel available on the website or project repository."
+        }
+      ],
+      "plansPricing": [
+        {
+          "question": "Is TwizzTools free?",
+          "answer": "Yes, all TwizzTools features are 100% free to use without limits."
+        },
+        {
+          "question": "Is there a premium version?",
+          "answer": "There are currently no plans for a premium version. All tools will remain free."
+        },
+        {
+          "question": "Do I need to register or log in?",
+          "answer": "No registration is required. Access and use the tool you need directly."
+        }
+      ],
+      "privacy": [
+        {
+          "question": "Are uploaded images stored?",
+          "answer": "No. All editing processes run directly in your browser. Images are not sent to the server."
+        },
+        {
+          "question": "Is my data safe?",
+          "answer": "Yes. Because all processes run in the browser, your data does not leave your device."
+        },
+        {
+          "question": "Does TwizzTools use cookies?",
+          "answer": "Only for analytics and theme preferences. No personal data is collected."
+        }
+      ],
+      "responsibleAi": [
+        {
+          "question": "Is AI Caption Generator safe to use?",
+          "answer": "Yes. AI Caption uses the official Google Gemini API with rate limits to prevent misuse."
+        },
+        {
+          "question": "Are generated captions original?",
+          "answer": "AI generates captions based on the context you provide. Results are unique, but you should still review and edit them to match your brand voice."
+        },
+        {
+          "question": "What is the daily caption generation limit?",
+          "answer": "Maximum 5 captions per day to prevent spam and keep service quality optimal."
+        }
+      ]
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Placeholder page. Structure is ready, features are not active yet.",
+    "metadata": {
+      "title": "Settings - TwizzTools",
+      "description": "TwizzTools settings."
+    },
+    "sections": [
+      {
+        "title": "Account",
+        "description": "Profile, preferences, and account access.",
+        "status": "Coming soon"
+      },
+      {
+        "title": "Appearance",
+        "description": "Theme, layout, and display preferences.",
+        "status": "Coming soon"
+      },
+      {
+        "title": "API & Integrations",
+        "description": "Manage external service connections and tokens.",
+        "status": "Coming soon"
+      }
+    ]
+  },
+  "changelog": {
+    "title": "Changelog",
+    "subtitle": "Get the latest updates and improvements to our platform.",
+    "version": "Version",
+    "whatsIncluded": "What's included:",
+    "metadata": {
+      "title": "Changelog - TwizzTools",
+      "description": "TwizzTools update history."
+    },
+    "entries": [
+      {
+        "id": "team-picker",
+        "version": "3.0.5",
+        "date": "2026-07-16",
+        "title": "Team Picker",
+        "description": "Today's update adds Team Picker to help you select and randomize team members more quickly.",
+        "changes": [
+          "New Team Picker feature for determining team members",
+          "Team selection flow made faster and more practical",
+          "Navigation to Team Picker added for easy access",
+          "User experience improvements for collaboration workflow"
+        ]
+      },
+      {
+        "id": "convert-image",
+        "version": "3.0.4",
+        "date": "2026-07-16",
+        "title": "Convert Image",
+        "description": "The next update adds the Convert Image tool for image conversion and compression directly from your browser.",
+        "changes": [
+          "New Convert Image page for uploading multiple images",
+          "Convert PNG, JPEG, and WebP formats",
+          "Quality settings for JPEG and WebP compression",
+          "Download individual results or ZIP for multiple files",
+          "Convert Image shortcut added to homepage and sidebar"
+        ]
+      },
+      {
+        "id": "changelog-faq-theme",
+        "version": "3.0.3",
+        "date": "2026-07-15",
+        "title": "Changelog, FAQ, and Theme",
+        "description": "The next update will focus on product information pages, lightweight documentation, and theme experience.",
+        "changes": [
+          "Changelog page for product update history",
+          "FAQ for common user questions",
+          "Theme toggle for light and dark modes",
+          "Settings, Changelog, and FAQ navigation refinement",
+          "Copy, metadata, and content structure improvements"
+        ]
+      },
+      {
+        "id": "captions-generator",
+        "version": "3.0.2",
+        "date": "2026-07-15",
+        "title": "AI Captions Generator",
+        "description": "Adding AI Captions feature to help creators generate social media captions faster.",
+        "changes": [
+          "New Captions page to generate captions with AI",
+          "Tone, platform, language, and caption variation settings",
+          "Footer manager to save reusable CTAs, hashtags, and signatures",
+          "Local rate limit to keep usage safe",
+          "Google Analytics installed for homepage usage tracking"
+        ]
+      },
+      {
+        "id": "rebuild-twizztools",
+        "version": "3.0.1",
+        "date": "2026-07-14",
+        "title": "Rebuild TwizzCutter to TwizzTools",
+        "description": "TwizzCutter.com rebuilt into TwizzTools.my.id with a new foundation for creator tools collection.",
+        "changes": [
+          "Brand migration from TwizzCutter to TwizzTools",
+          "New domain TwizzTools.my.id",
+          "Image Cutter still available for Instagram grid and carousel",
+          "Reels Maker still available for 9:16 vertical content format",
+          "Dashboard, sidebar, and navigation layout rebuilt"
+        ],
+        "image": {
+          "src": "/changelog/3.0.1.webp",
+          "alt": "TwizzTools 3.0.1 dashboard preview"
+        }
+      }
+    ]
+  }
+}

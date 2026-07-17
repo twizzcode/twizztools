@@ -1,6 +1,9 @@
+"use client"
+
 import { ImageUploadIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 import { FileUpload, FileUploadDropzone } from "@/components/ui/file-upload"
 import { LivePreview, type CutMode, type GapOption, type Phase } from "./live-preview"
 
@@ -27,6 +30,8 @@ export function Workspace({
   resultUrls,
   onFilesChange,
 }: WorkspaceProps) {
+  const t = useTranslations('cutter');
+  
   return (
     <div className="flex h-full flex-col lg:min-h-0">
       <FileUpload
@@ -40,13 +45,13 @@ export function Workspace({
         {phase === "upload" && (
           <div className="flex h-full items-center justify-center flex-col gap-8">
             <div className="text-center">
-              <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Instagram Image Cutter</h1>
-              <p className="mt-2 text-sm text-muted-foreground">Potong gambar jadi Grid, Carousel, atau Custom untuk feed Instagram</p>
+              <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">{t('title')}</h1>
+              <p className="mt-2 text-sm text-muted-foreground">{t('subtitle')}</p>
             </div>
             <FileUploadDropzone className="min-h-25 w-full max-w-sm rounded-2xl bg-background/60 px-6 py-10 lg:min-h-30 lg:flex-none">
               <HugeiconsIcon icon={ImageUploadIcon} strokeWidth={1.75} className="mb-4 size-10 text-muted-foreground" />
-              <p className="text-sm font-semibold">Drop image di sini</p>
-              <p className="text-xs text-muted-foreground">atau klik buat pilih file</p>
+              <p className="text-sm font-semibold">{t('dropImage')}</p>
+              <p className="text-xs text-muted-foreground">{t('orClick')}</p>
             </FileUploadDropzone>
           </div>
         )}
@@ -76,7 +81,7 @@ export function Workspace({
                     link.click()
                   }}
                   className="absolute top-2 right-2 bg-background/80 hover:bg-background border rounded-lg p-2"
-                  aria-label={`Download hasil ${index + 1}`}
+                  aria-label={t('downloadResult', { number: index + 1 })}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

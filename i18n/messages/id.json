@@ -1,0 +1,411 @@
+{
+  "home": {
+    "title": "TwizzTools.my.id",
+    "description": "Koleksi tools untuk membantu workflow kreatif kamu",
+    "feedback": "Ada bug atau saran?",
+    "imageCutter": {
+      "title": "Image Cutter",
+      "description": "Potong gambar untuk Instagram Grid & Carousel"
+    },
+    "convertImage": {
+      "title": "Convert Image",
+      "description": "Ubah format dan kompres gambar"
+    },
+    "reelsMaker": {
+      "title": "Reels Maker",
+      "description": "Buat gambar format 9:16 untuk Instagram Reels"
+    },
+    "aiCaptions": {
+      "title": "AI Captions",
+      "description": "Generate caption dengan AI untuk social media"
+    },
+    "teamPicker": {
+      "title": "Team Picker",
+      "description": "Buat kelompok random dengan ketua"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "imageCutter": "Image Cutter",
+    "imageCutterDesc": "Potong gambar untuk Instagram",
+    "reels": "Reels",
+    "reelsDesc": "Buat Instagram Reels",
+    "captions": "Captions",
+    "captionsDesc": "Generator Caption AI",
+    "convertImage": "Convert Image",
+    "convertImageDesc": "Konversi dan kompres gambar",
+    "teamPicker": "Team Picker",
+    "teamPickerDesc": "Generator tim random",
+    "settings": "Settings",
+    "changelog": "Changelog",
+    "faq": "FAQ",
+    "menu": "Menu",
+    "cutter": "Cutter"
+  },
+  "metadata": {
+    "title": "TwizzTools - Free Instagram Tools",
+    "description": "Koleksi tools gratis untuk membantu workflow kreatif kamu. Image cutter untuk Instagram Grid & Carousel, Reels maker, dan AI Caption Generator.",
+    "rootTitle": "Twizz Tools - Image Cutter & Instagram Tools",
+    "rootDescription": "Free online tools for Instagram content creators. Cut images for carousel posts and create Instagram Reels with ease."
+  },
+  "common": {
+    "language": "Bahasa"
+  },
+  "teamPicker": {
+    "title": "Team Picker",
+    "subtitle": "Buat kelompok acak dari daftar nama.",
+    "memberNames": "Nama anggota",
+    "placeholder": "Satu nama per baris",
+    "validNames": "nama valid",
+    "method": "Metode",
+    "numberOfTeams": "Jumlah kelompok",
+    "membersPerTeam": "Orang per kelompok",
+    "amount": "Jumlah",
+    "randomLeader": "Tentukan ketua random",
+    "shuffling": "Mengacak...",
+    "randomizeTeam": "Acak Team",
+    "restart": "Restart",
+    "exportImage": "Export Gambar",
+    "resultsPlaceholder": "Hasil pembagian kelompok akan muncul di sini.",
+    "team": "Kelompok",
+    "people": "orang",
+    "errors": {
+      "minNames": "Minimal 2 nama",
+      "duplicateNames": "Nama duplikat: {names}",
+      "invalidAmount": "Jumlah harus berupa angka bulat lebih dari 0",
+      "teamsExceed": "Jumlah kelompok melebihi jumlah nama",
+      "membersExceed": "Jumlah orang per kelompok melebihi jumlah nama"
+    }
+  },
+  "reels": {
+    "title": "Reels Image Maker",
+    "subtitle": "Ubah gambar jadi format vertikal 9:16 untuk Instagram Reels",
+    "dropImage": "Drop image di sini",
+    "orClick": "atau klik buat pilih file",
+    "reelsMode": "Mode Reels",
+    "modes": {
+      "content": "Konten",
+      "white": "Putih",
+      "black": "Hitam",
+      "custom": "Custom"
+    },
+    "blur": "Blur",
+    "customBackground": "Background Custom",
+    "exporting": "Exporting...",
+    "download": "Download",
+    "changeImage": "Ganti gambar"
+  },
+  "captions": {
+    "title": "AI Caption Generator",
+    "subtitle": "Generate engaging social media captions with AI",
+    "dropImage": "Drop image di sini",
+    "orClick": "atau klik buat pilih file (Max 20MB)",
+    "generating": "Generating captions...",
+    "theme": "Theme",
+    "themes": {
+      "personal": "Personal",
+      "organization": "Organization",
+      "promotion": "Promotion",
+      "event": "Event",
+      "education": "Education"
+    },
+    "tone": "Tone",
+    "tones": {
+      "casual": "Casual",
+      "formal": "Formal",
+      "inspirational": "Inspirational",
+      "professional": "Professional",
+      "friendly": "Friendly"
+    },
+    "length": "Length",
+    "lengths": {
+      "short": "Pendek",
+      "medium": "Sedang",
+      "long": "Panjang"
+    },
+    "writingStyle": "Writing Style",
+    "writingStyles": {
+      "storytelling": "Storytelling",
+      "informative": "Informative",
+      "persuasive": "Persuasive",
+      "reflective": "Reflective"
+    },
+    "language": "Language",
+    "languages": {
+      "english": "🇺🇸 English",
+      "indonesian": "🇮🇩 Bahasa Indonesia"
+    },
+    "includeEmotions": "Include Emotions",
+    "customPrompt": "Custom Prompt",
+    "customPromptPlaceholder": "e.g. Mention sustainability, Include call-to-action, Focus on benefits...",
+    "customPromptHint": "Add specific instructions to customize the caption generation",
+    "includeFooter": "Include Footer",
+    "selectFooter": "Select a footer",
+    "manageFooters": "Manage Footers",
+    "generate": "Generate Captions",
+    "changeImage": "Ganti gambar",
+    "usageLimit": "Usage: {used}/{limit} today",
+    "resetIn": "Reset in {time}",
+    "dailyLimitReached": "Daily limit reached. Try again tomorrow!",
+    "generateSuccess": "Captions generated successfully!",
+    "copySuccess": "Caption copied!",
+    "noResults": "No captions generated yet",
+    "generateAgain": "Generate Again",
+    "error": "Failed to generate captions"
+  },
+  "convertImage": {
+    "title": "Convert & Compress Images",
+    "subtitle": "Upload banyak gambar PNG, JPG, JPEG, atau WEBP",
+    "maxFiles": "Maksimal {max} file",
+    "dropImages": "Drop image di sini",
+    "orClick": "atau klik buat pilih banyak file",
+    "addMore": "Tambah image",
+    "format": "Output format",
+    "compress": "Compress",
+    "quality": "Quality",
+    "reading": "Membaca file...",
+    "convert": "Convert",
+    "convertAll": "Convert semua",
+    "downloadAll": "Download semua",
+    "downloadZip": "Download ZIP",
+    "download": "Download",
+    "back": "Back",
+    "clear": "Reset",
+    "converting": "Converting...",
+    "zipping": "Zipping...",
+    "details": {
+      "size": "Size",
+      "type": "Format",
+      "dimensions": "Pixel"
+    },
+    "results": {
+      "title": "Result",
+      "subtitle": "Preview dan download hasil convert",
+      "original": "Original",
+      "converted": "Converted",
+      "saved": "Selisih"
+    },
+    "errors": {
+      "tooManyFiles": "Terlalu banyak file. Maksimal {max} file.",
+      "fileTooLarge": "File terlalu besar. Maksimal {max}MB per file.",
+      "invalidType": "Tipe file tidak valid. Hanya gambar yang diperbolehkan.",
+      "conversionFailed": "Konversi gagal"
+    }
+  },
+  "cutter": {
+    "title": "Instagram Image Cutter",
+    "subtitle": "Potong gambar jadi Grid, Carousel, atau Custom untuk feed Instagram",
+    "dropImage": "Drop image di sini",
+    "orClick": "atau klik buat pilih file",
+    "typeOfCut": "Type of Cut",
+    "modes": {
+      "grid": "Grid",
+      "carousel": "Carousel",
+      "custom": "Custom"
+    },
+    "rows": "Rows",
+    "columns": "Columns",
+    "typeOfGrid": "Type of Grid",
+    "gapTypes": {
+      "withGap": "With Gap",
+      "noGap": "No Gap"
+    },
+    "recommendation": "Rekomendasi",
+    "crop": "Crop",
+    "cropping": "Cropping...",
+    "reset": "Reset",
+    "downloadAll": "Download semua",
+    "downloadResult": "Download hasil {number}",
+    "backToCrop": "Back"
+  },
+  "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "subtitle": "Kalau kamu baru memakai TwizzTools atau ingin tahu cara kerja tiap fitur, panduan ini membantu kamu memahami tools gratis untuk workflow kreatif kamu.",
+    "metadata": {
+      "title": "FAQ - TwizzTools",
+      "description": "Pertanyaan yang sering diajukan tentang TwizzTools."
+    },
+    "categories": [
+      { "id": "general", "label": "Umum" },
+      { "id": "plansPricing", "label": "Paket & Harga" },
+      { "id": "privacy", "label": "Privasi" },
+      { "id": "responsibleAi", "label": "AI Bertanggung Jawab" }
+    ],
+    "items": {
+      "general": [
+        {
+          "question": "Apa itu TwizzTools?",
+          "answer": "TwizzTools adalah kumpulan tools gratis untuk membantu workflow kreatif, terutama konten Instagram."
+        },
+        {
+          "question": "Bagaimana cara mulai memakai TwizzTools?",
+          "answer": "Pilih tool yang kamu butuhkan dari halaman utama, lalu ikuti instruksi di halaman tool tersebut."
+        },
+        {
+          "question": "Platform apa yang didukung?",
+          "answer": "TwizzTools berjalan di browser modern pada desktop dan mobile."
+        },
+        {
+          "question": "Apakah ada aplikasi mobile?",
+          "answer": "Belum ada aplikasi mobile terpisah. Semua fitur bisa dipakai langsung lewat browser."
+        },
+        {
+          "question": "Bagaimana cara menghubungi support?",
+          "answer": "Gunakan kanal kontak yang tersedia di website atau repository proyek."
+        }
+      ],
+      "plansPricing": [
+        {
+          "question": "Apakah TwizzTools gratis?",
+          "answer": "Ya, semua fitur TwizzTools 100% gratis untuk digunakan tanpa batasan."
+        },
+        {
+          "question": "Apakah ada versi premium?",
+          "answer": "Saat ini belum ada rencana untuk versi premium. Semua tools akan tetap gratis."
+        },
+        {
+          "question": "Apakah perlu registrasi atau login?",
+          "answer": "Tidak perlu registrasi. Langsung akses dan pakai tool yang kamu butuhkan."
+        }
+      ],
+      "privacy": [
+        {
+          "question": "Apakah gambar yang saya upload disimpan?",
+          "answer": "Tidak. Semua proses editing dilakukan langsung di browser kamu. Gambar tidak dikirim ke server."
+        },
+        {
+          "question": "Apakah data saya aman?",
+          "answer": "Ya. Karena semua proses berjalan di browser, data kamu tidak meninggalkan perangkat kamu."
+        },
+        {
+          "question": "Apakah TwizzTools menggunakan cookies?",
+          "answer": "Hanya untuk analytics dan preferensi tema. Tidak ada data pribadi yang dikumpulkan."
+        }
+      ],
+      "responsibleAi": [
+        {
+          "question": "Apakah AI Caption Generator aman digunakan?",
+          "answer": "Ya. AI Caption menggunakan API resmi dari Google Gemini dengan rate limit untuk mencegah penyalahgunaan."
+        },
+        {
+          "question": "Apakah caption yang dihasilkan original?",
+          "answer": "AI menghasilkan caption berdasarkan konteks yang kamu berikan. Hasilnya unik, tapi tetap disarankan untuk review dan edit sesuai brand voice kamu."
+        },
+        {
+          "question": "Berapa limit generate caption per hari?",
+          "answer": "Maksimal 5 caption per hari untuk mencegah spam dan memastikan kualitas layanan tetap optimal."
+        }
+      ]
+    }
+  },
+  "settings": {
+    "title": "Pengaturan",
+    "subtitle": "Halaman dummy. Struktur siap, fitur belum aktif.",
+    "metadata": {
+      "title": "Pengaturan - TwizzTools",
+      "description": "Pengaturan TwizzTools."
+    },
+    "sections": [
+      {
+        "title": "Akun",
+        "description": "Profil, preferensi, dan akses akun.",
+        "status": "Segera hadir"
+      },
+      {
+        "title": "Tampilan",
+        "description": "Tema, layout, dan preferensi tampilan.",
+        "status": "Segera hadir"
+      },
+      {
+        "title": "API & Integrasi",
+        "description": "Kelola koneksi layanan eksternal dan token.",
+        "status": "Segera hadir"
+      }
+    ]
+  },
+  "changelog": {
+    "title": "Changelog",
+    "subtitle": "Dapatkan update dan peningkatan terbaru untuk platform kami.",
+    "version": "Versi",
+    "whatsIncluded": "Yang termasuk:",
+    "metadata": {
+      "title": "Changelog - TwizzTools",
+      "description": "Riwayat update TwizzTools."
+    },
+    "entries": [
+      {
+        "id": "team-picker",
+        "version": "3.0.5",
+        "date": "2026-07-16",
+        "title": "Team Picker",
+        "description": "Update hari ini menambahkan Team Picker untuk membantu memilih dan mengacak anggota tim dengan lebih cepat.",
+        "changes": [
+          "Fitur Team Picker baru untuk menentukan anggota tim",
+          "Alur pemilihan tim dibuat lebih cepat dan praktis",
+          "Navigasi ke Team Picker ditambahkan agar mudah diakses",
+          "Penyempurnaan pengalaman pengguna untuk workflow kolaborasi"
+        ]
+      },
+      {
+        "id": "convert-image",
+        "version": "3.0.4",
+        "date": "2026-07-16",
+        "title": "Convert Image",
+        "description": "Update berikutnya menambahkan tool Convert Image untuk konversi dan kompresi gambar langsung dari browser.",
+        "changes": [
+          "Halaman Convert Image baru untuk upload banyak gambar",
+          "Konversi format PNG, JPEG, dan WebP",
+          "Pengaturan kualitas untuk kompresi JPEG dan WebP",
+          "Download hasil satuan atau ZIP untuk banyak file",
+          "Shortcut Convert Image ditambahkan ke halaman utama dan sidebar"
+        ]
+      },
+      {
+        "id": "changelog-faq-theme",
+        "version": "3.0.3",
+        "date": "2026-07-15",
+        "title": "Changelog, FAQ, dan Theme",
+        "description": "Update berikutnya akan fokus ke halaman informasi produk, dokumentasi ringan, dan pengalaman tema.",
+        "changes": [
+          "Halaman Changelog untuk riwayat update produk",
+          "FAQ untuk pertanyaan umum pengguna",
+          "Theme toggle untuk mode terang dan gelap",
+          "Perapian navigasi Settings, Changelog, dan FAQ",
+          "Penyempurnaan copy, metadata, dan struktur konten"
+        ]
+      },
+      {
+        "id": "captions-generator",
+        "version": "3.0.2",
+        "date": "2026-07-15",
+        "title": "AI Captions Generator",
+        "description": "Menambahkan fitur AI Captions untuk membantu kreator membuat caption social media lebih cepat.",
+        "changes": [
+          "Halaman Captions baru untuk generate caption dengan AI",
+          "Pengaturan tone, platform, bahasa, dan jumlah variasi caption",
+          "Footer manager untuk menyimpan CTA, hashtag, dan signature reusable",
+          "Rate limit lokal untuk menjaga penggunaan tetap aman",
+          "Google Analytics dipasang untuk tracking penggunaan halaman utama"
+        ]
+      },
+      {
+        "id": "rebuild-twizztools",
+        "version": "3.0.1",
+        "date": "2026-07-14",
+        "title": "Rebuild TwizzCutter ke TwizzTools",
+        "description": "TwizzCutter.com dibangun ulang menjadi TwizzTools.my.id dengan fondasi baru untuk kumpulan tools kreator.",
+        "changes": [
+          "Migrasi brand dari TwizzCutter ke TwizzTools",
+          "Domain baru TwizzTools.my.id",
+          "Image Cutter tetap tersedia untuk grid dan carousel Instagram",
+          "Reels Maker tetap tersedia untuk format konten vertikal 9:16",
+          "Layout dashboard, sidebar, dan navigasi dibangun ulang"
+        ],
+        "image": {
+          "src": "/changelog/3.0.1.webp",
+          "alt": "TwizzTools 3.0.1 dashboard preview"
+        }
+      }
+    ]
+  }
+}

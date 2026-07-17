@@ -1,36 +1,30 @@
 import type { Metadata } from "next"
+import { getTranslations } from "next-intl/server"
 
-export const metadata: Metadata = {
-  title: "Settings - TwizzTools",
-  description: "Pengaturan TwizzTools.",
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("settings.metadata")
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  }
 }
 
-const settingSections = [
-  {
-    title: "Account",
-    description: "Profile, preferences, dan akses akun.",
-    status: "Coming soon",
-  },
-  {
-    title: "Appearance",
-    description: "Theme, layout, dan preferensi tampilan.",
-    status: "Coming soon",
-  },
-  {
-    title: "API & Integrations",
-    description: "Kelola koneksi layanan eksternal dan token.",
-    status: "Coming soon",
-  },
-]
+type SettingSection = {
+  title: string
+  description: string
+  status: string
+}
 
-export default function SettingsPage() {
+export default async function SettingsPage() {
+  const t = await getTranslations("settings")
+  const settingSections = t.raw("sections") as SettingSection[]
+
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 lg:p-6">
       <div className="rounded-xl border border-border/60 bg-card p-6">
-        <h1 className="text-2xl font-semibold">Settings</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Halaman dummy. Struktur siap, fitur belum hidup.
-        </p>
+        <h1 className="text-2xl font-semibold">{t("title")}</h1>
+        <p className="mt-2 text-sm text-muted-foreground">{t("subtitle")}</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

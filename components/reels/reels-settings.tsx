@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import type { ReelsMode } from "./reels-preview"
@@ -25,11 +26,13 @@ function Segmented<T extends string>({
   value,
   onChange,
   disabled,
+  labels,
 }: {
   options: readonly T[]
   value: T
   onChange: (value: T) => void
   disabled?: boolean
+  labels?: Record<T, string>
 }) {
   return (
     <ToggleGroup
@@ -46,7 +49,7 @@ function Segmented<T extends string>({
     >
       {options.map((item) => (
         <ToggleGroupItem key={item} value={item} className="w-full capitalize">
-          {item}
+          {labels?.[item] || item}
         </ToggleGroupItem>
       ))}
     </ToggleGroup>
@@ -54,10 +57,18 @@ function Segmented<T extends string>({
 }
 
 export function ReelsSettings({ image, mode, customColor, contentBlur, onModeChange, onCustomColorChange, onContentBlurChange, onReset }: ReelsSettingsProps) {
+  const t = useTranslations('reels');
   const [customInput, setCustomInput] = React.useState(customColor)
   const [exporting, setExporting] = React.useState(false)
 
   const disabled = !image
+
+  const modeLabels: Record<ReelsMode, string> = {
+    content: t('modes.content'),
+    white: t('modes.white'),
+    black: t('modes.black'),
+    custom: t('modes.custom'),
+  };
 
   const handleColorInput = (val: string) => {
     setCustomInput(val)
@@ -144,13 +155,13 @@ export function ReelsSettings({ image, mode, customColor, contentBlur, onModeCha
       <div className="flex flex-col gap-3 rounded-lg border bg-card p-4 lg:h-full">
         <div className="flex-1 space-y-3">
           <div className="grid gap-2">
-            <h2 className="text-sm font-semibold">Reels Mode</h2>
-            <Segmented options={MODES} value={mode} onChange={onModeChange} />
+            <h2 className="text-sm font-semibold">{t('reelsMode')}</h2>
+            <Segmented options={MODES} value={mode} onChange={onModeChange} labels={modeLabels} />
           </div>
 
           <div className={mode === "content" ? "grid gap-2" : "pointer-events-none invisible grid gap-2"}>
             <label className="flex items-center justify-between text-sm font-semibold">
-              <span>Blur</span>
+              <span>{t('blur')}</span>
               <span className="tabular-nums text-xs font-normal text-muted-foreground">{contentBlur}px</span>
             </label>
             <input
@@ -166,7 +177,7 @@ export function ReelsSettings({ image, mode, customColor, contentBlur, onModeCha
           </div>
 
           <div className={mode === "custom" ? "grid gap-2" : "pointer-events-none invisible grid gap-2"}>
-            <h2 className="text-sm font-semibold">Custom Background</h2>
+            <h2 className="text-sm font-semibold">{t('customBackground')}</h2>
             <div className="flex items-center gap-2">
               <input
                 type="color"
@@ -195,10 +206,10 @@ export function ReelsSettings({ image, mode, customColor, contentBlur, onModeCha
 
         <div className="grid gap-3">
           <Button onClick={download} disabled={disabled || exporting} data-umami-event="reels_download">
-            {exporting ? "Exporting..." : "Download"}
+            {exporting ? t('exporting') : t('download')}
           </Button>
           <Button variant="outline" onClick={onReset} disabled={disabled}>
-            Ganti gambar
+            {t('changeImage')}
           </Button>
         </div>
       </div>

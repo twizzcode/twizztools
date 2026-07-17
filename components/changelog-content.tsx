@@ -2,20 +2,33 @@
 
 import * as React from "react"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
-import { changelogEntries, formatChangelogDate } from "@/lib/changelog"
+import { formatChangelogDate } from "@/lib/changelog"
 
 function VersionBadge({ version }: { version: string }) {
+  const t = useTranslations('changelog');
   return (
     <span className="inline-flex h-5 w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap rounded-4xl border border-transparent bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground transition-all">
-      Version {version}
+      {t('version')} {version}
     </span>
   )
 }
 
 export function ChangelogContent() {
+  const t = useTranslations('changelog');
+  const changelogEntries = t.raw('entries') as Array<{
+    id: string;
+    version: string;
+    date: string;
+    title: string;
+    description: string;
+    changes: string[];
+    image?: { src: string; alt: string };
+  }>;
+  
   const [activeEntry, setActiveEntry] = React.useState(0)
   const rootRef = React.useRef<HTMLDivElement>(null)
 
@@ -105,7 +118,7 @@ export function ChangelogContent() {
         scrollParent.style.scrollbarWidth = ""
       }
     }
-  }, [])
+  }, [changelogEntries])
 
   return (
     <>
@@ -113,19 +126,19 @@ export function ChangelogContent() {
       <div ref={rootRef} className="container relative flex flex-col lg:flex-row">
       <div className="mb-12 lg:hidden">
         <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-          Changelog
+          {t('title')}
         </h1>
         <p className="text-base text-muted-foreground md:text-lg">
-          Get the latest updates and improvements to our platform.
+          {t('subtitle')}
         </p>
         <Separator className="mt-8" />
       </div>
 
       <aside className="sticky top-0 hidden h-fit w-72 overflow-visible lg:px-6 pt-4 lg:block lg:pt-6">
         <div className="mb-10">
-          <h1 className="mb-3 text-3xl font-bold tracking-tight">Changelog</h1>
+          <h1 className="mb-3 text-3xl font-bold tracking-tight">{t('title')}</h1>
           <p className="text-base text-muted-foreground">
-            Get the latest updates and improvements to our platform.
+            {t('subtitle')}
           </p>
         </div>
         <Separator className="mb-6" />
@@ -144,7 +157,7 @@ export function ChangelogContent() {
                 >
                   <span className="text-sm">{entry.title}</span>
                   <span className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <span className="font-medium">Version {entry.version}</span>
+                    <span className="font-medium">{t('version')} {entry.version}</span>
                     <span>•</span>
                     <span>{formatChangelogDate(entry.date)}</span>
                   </span>
@@ -177,10 +190,10 @@ export function ChangelogContent() {
                   {entry.description}
                 </p>
                 <div className="mt-6 rounded-lg border bg-muted/30 p-5">
-                  <h3 className="mb-3 text-sm font-medium">What&apos;s included:</h3>
+                  <h3 className="mb-3 text-sm font-medium">{t('whatsIncluded')}</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    {entry.changes.map((change) => (
-                      <li key={change} className="flex items-start">
+                    {entry.changes.map((change, index) => (
+                      <li key={index} className="flex items-start">
                         <span className="mt-1 mr-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                         <span>{change}</span>
                       </li>

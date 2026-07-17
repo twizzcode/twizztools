@@ -4,6 +4,7 @@ import * as React from "react"
 import { CrownIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { toast } from "sonner"
+import { useTranslations } from "next-intl"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -77,11 +78,11 @@ function shuffle<T>(items: T[]) {
   return next
 }
 
-function splitTeams(names: string[], mode: Mode, amount: number, withLeader: boolean) {
+function splitTeams(names: string[], mode: Mode, amount: number, withLeader: boolean, teamLabel: string) {
   const safeAmount = Math.max(1, Math.floor(amount))
   const teamCount = mode === "teams" ? Math.min(safeAmount, names.length) : Math.ceil(names.length / safeAmount)
   const teams = Array.from({ length: teamCount }, (_, index) => ({
-    name: `Kelompok ${index + 1}`,
+    name: `${teamLabel} ${index + 1}`,
     members: [] as string[],
   }))
 
@@ -103,6 +104,7 @@ function download(url: string, name: string) {
 }
 
 export default function TeamPickerPage() {
+  const t = useTranslations('teamPicker');
   const [initialState] = React.useState(getStoredState)
   const [rawNames, setRawNames] = React.useState(initialState.rawNames)
   const [mode, setMode] = React.useState<Mode>(initialState.mode)
@@ -134,46 +136,47 @@ export default function TeamPickerPage() {
 
   const randomize = React.useCallback(() => {
     if (names.length < 2) {
-      toast.error("Minimal 2 nama")
+      toast.error(t('errors.minNames'))
       return
     }
 
     const duplicates = getDuplicateNames(names)
     if (duplicates.length) {
-      toast.error(`Nama duplikat: ${duplicates.join(", ")}`)
+      toast.error(t('errors.duplicateNames', { names: duplicates.join(", ") }))
       return
     }
 
     if (!Number.isInteger(amount) || amount < 1) {
-      toast.error("Jumlah harus berupa angka bulat lebih dari 0")
+      toast.error(t('errors.invalidAmount'))
       return
     }
 
     if (amount > names.length) {
-      toast.error(mode === "teams" ? "Jumlah kelompok melebihi jumlah nama" : "Jumlah orang per kelompok melebihi jumlah nama")
+      toast.error(mode === "teams" ? t('errors.teamsExceed') : t('errors.membersExceed'))
       return
     }
 
-    setTeams(splitTeams(names, mode, amount, withLeader))
+    setTeams(splitTeams(names, mode, amount, withLeader, t('team')))
     setIsShuffling(true)
     window.setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 0)
 
     let tick = 0
     const timer = window.setInterval(() => {
-      setTeams(splitTeams(names, mode, amount, withLeader))
+      setTeams(splitTeams(names, mode, amount, withLeader, t('team')))
       tick += 1
 
       if (tick >= 20) {
         window.clearInterval(timer)
-        setTeams(splitTeams(names, mode, amount, withLeader))
+        setTeams(splitTeams(names, mode, amount, withLeader, t('team')))
         setIsShuffling(false)
       }
     }, 200)
-  }, [amount, mode, names, withLeader])
+  }, [amount, mode, names, withLeader, t])
 
   const exportImage = React.useCallback(async () => {
     if (!teams.length) return
 
+    const peopleLabel = t('people')
     const columns = Math.min(2, teams.length)
     const cardWidth = 360
     const cardGap = 24
@@ -215,7 +218,7 @@ export default function TeamPickerPage() {
       ctx.fillText(team.name, x + 24, y + 36)
       ctx.fillStyle = "#9aa3b2"
       ctx.font = "13px sans-serif"
-      ctx.fillText(`${team.members.length} orang`, x + cardWidth - 88, y + 36)
+      ctx.fillText(`${team.members.length} ${peopleLabel}`, x + cardWidth - 88, y + 36)
 
       team.members.forEach((member, memberIndex) => {
         const itemY = y + 70 + memberIndex * lineHeight
@@ -240,7 +243,7 @@ export default function TeamPickerPage() {
     const url = URL.createObjectURL(blob)
     download(url, "team-picker.png")
     URL.revokeObjectURL(url)
-  }, [teams])
+  }, [teams, t])
 
   return (
     <main ref={pageRef} className="container mx-auto flex h-full min-h-0 flex-1 overflow-auto pt-4 pb-8 lg:overflow-hidden lg:py-0">
@@ -249,26 +252,26 @@ export default function TeamPickerPage() {
           <div className="space-y-4 pb-4 lg:min-h-0 lg:flex-1 lg:overflow-auto">
             <div className="space-y-3">
               <div className="space-y-1">
-                <h1 className="text-2xl font-bold">Team Picker</h1>
-                <p className="text-sm text-muted-foreground">Buat kelompok acak dari daftar nama.</p>
+                <h1 className="text-2xl font-bold">{t('title')}</h1>
+                <p className="text-sm text-muted-foreground">{t('subtitle')}</p>
               </div>
               <Separator className="-mx-4 w-auto" />
             </div>
 
           <div>
-            <label htmlFor={namesId} className="mb-2 block text-sm font-medium">Nama anggota</label>
+            <label htmlFor={namesId} className="mb-2 block text-sm font-medium">{t('memberNames')}</label>
             <Textarea
               id={namesId}
               value={rawNames}
               onChange={(event) => setRawNames(event.target.value)}
               className="min-h-64 resize-none"
-              placeholder="Satu nama per baris"
+              placeholder={t('placeholder')}
             />
-            <p className="mt-2 text-xs text-muted-foreground">{names.length} nama valid</p>
+            <p className="mt-2 text-xs text-muted-foreground">{names.length} {t('validNames')}</p>
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium">Metode</label>
+            <label className="text-sm font-medium">{t('method')}</label>
             <ToggleGroup
               value={[mode]}
               onValueChange={(value) => {
@@ -280,16 +283,16 @@ export default function TeamPickerPage() {
               spacing={0}
             >
               <ToggleGroupItem value="teams" className="h-auto w-full px-3 py-2 text-wrap">
-                Jumlah kelompok
+                {t('numberOfTeams')}
               </ToggleGroupItem>
               <ToggleGroupItem value="members" className="h-auto w-full px-3 py-2 text-wrap">
-                Orang per kelompok
+                {t('membersPerTeam')}
               </ToggleGroupItem>
             </ToggleGroup>
           </div>
 
           <div className="space-y-2">
-            <label htmlFor={amountId} className="text-sm font-medium">Jumlah</label>
+            <label htmlFor={amountId} className="text-sm font-medium">{t('amount')}</label>
             <Input
               id={amountId}
               type="number"
@@ -301,22 +304,24 @@ export default function TeamPickerPage() {
 
           <label htmlFor={leaderId} className="flex items-center gap-3 text-sm">
             <Switch id={leaderId} checked={withLeader} onCheckedChange={setWithLeader} />
-            Tentukan ketua random
+            {t('randomLeader')}
           </label>
 
           </div>
 
           <div className="grid shrink-0 gap-2 pt-4 sm:grid-cols-3 lg:grid-cols-1">
-            <Button onClick={randomize} disabled={isShuffling} data-umami-event="team_picker_randomize">{isShuffling ? "Mengacak..." : "Acak Team"}</Button>
-            <Button variant="outline" onClick={restart} disabled={isShuffling}>Restart</Button>
-            <Button variant="outline" onClick={exportImage} disabled={!teams.length || isShuffling}>Export Gambar</Button>
+            <Button onClick={randomize} disabled={isShuffling} data-umami-event="team_picker_randomize">
+              {isShuffling ? t('shuffling') : t('randomizeTeam')}
+            </Button>
+            <Button variant="outline" onClick={restart} disabled={isShuffling}>{t('restart')}</Button>
+            <Button variant="outline" onClick={exportImage} disabled={!teams.length || isShuffling}>{t('exportImage')}</Button>
           </div>
         </section>
 
         <section ref={resultsRef} className={`${teams.length || isShuffling ? "block" : "hidden"} rounded-xl border bg-muted/30 p-4 lg:block lg:min-h-0 lg:overflow-auto`}>
           {teams.length === 0 ? (
             <div className="flex h-full min-h-[320px] items-center justify-center text-center text-sm text-muted-foreground">
-              Hasil pembagian kelompok akan muncul di sini.
+              {t('resultsPlaceholder')}
             </div>
           ) : null}
           <div className="grid gap-4 md:grid-cols-2">
@@ -327,7 +332,7 @@ export default function TeamPickerPage() {
               >
                 <div className="mb-3 flex items-center justify-between gap-3">
                   <h2 className="font-semibold">{team.name}</h2>
-                  <span className="text-xs text-muted-foreground">{team.members.length} orang</span>
+                  <span className="text-xs text-muted-foreground">{team.members.length} {t('people')}</span>
                 </div>
 
                 <div className="space-y-2">

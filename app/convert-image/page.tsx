@@ -4,6 +4,7 @@ import * as React from "react"
 import Image from "next/image"
 import { Delete02Icon, ImageUploadIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { FileUpload, FileUploadDropzone } from "@/components/ui/file-upload"
 import { Switch } from "@/components/ui/switch"
@@ -241,6 +242,7 @@ function FormatToggle({ value, onChange }: { value: OutputFormat; onChange: (val
 }
 
 export default function ConvertImagePage() {
+  const t = useTranslations('convertImage');
   const [files, setFiles] = React.useState<File[]>([])
   const [items, setItems] = React.useState<ImageItem[]>([])
   const [format, setFormat] = React.useState<OutputFormat>("webp")
@@ -396,17 +398,17 @@ export default function ConvertImagePage() {
           {results.length === 0 ? (
             <>
               <div>
-                <h1 className="text-2xl font-bold tracking-tight">Convert Image</h1>
-                <p className="mt-1 text-sm text-muted-foreground">Upload banyak gambar PNG, JPG, JPEG, atau WEBP</p>
-                <p className="mt-1 text-xs text-muted-foreground">Maksimal {MAX_FILES} file, {formatBytes(MAX_FILE_SIZE)} per file.</p>
+                <h1 className="text-2xl font-bold tracking-tight">{t('title')}</h1>
+                <p className="mt-1 text-sm text-muted-foreground">{t('subtitle')}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{t('maxFiles', { max: MAX_FILES })} · {formatBytes(MAX_FILE_SIZE)} per file</p>
               </div>
 
               <FileUpload value={files} onValueChange={onFilesChange} accept="image/png,image/jpeg,image/webp" maxFiles={MAX_FILES} maxSize={MAX_FILE_SIZE} multiple label="Image upload" className="flex min-h-0 flex-1 flex-col gap-4">
                 {items.length === 0 ? (
                   <FileUploadDropzone className="flex min-h-60 flex-1 flex-col items-center justify-center rounded-2xl border border-dashed bg-background/60 px-6 py-8">
                     <HugeiconsIcon icon={ImageUploadIcon} strokeWidth={1.75} className="mb-4 size-10 text-muted-foreground" />
-                    <p className="text-sm font-semibold">Drop image di sini</p>
-                    <p className="text-xs text-muted-foreground">atau klik buat pilih banyak file</p>
+                    <p className="text-sm font-semibold">{t('dropImages')}</p>
+                    <p className="text-xs text-muted-foreground">{t('orClick')}</p>
                     <p className="mt-2 text-[11px] text-muted-foreground">PNG, JPG, WEBP · max {formatBytes(MAX_FILE_SIZE)} / file</p>
                   </FileUploadDropzone>
                 ) : (
@@ -428,17 +430,17 @@ export default function ConvertImagePage() {
                         </div>
                         <div className="grid gap-1 p-2">
                           <p className="truncate text-xs font-medium">{item.file.name}</p>
-                          <DetailRow label="Pixel" value={`${item.width} × ${item.height}`} />
-                          <DetailRow label="Size" value={formatBytes(item.size)} />
-                          <DetailRow label="Format" value={formatType(item.type)} />
+                          <DetailRow label={t('details.dimensions')} value={`${item.width} × ${item.height}`} />
+                          <DetailRow label={t('details.size')} value={formatBytes(item.size)} />
+                          <DetailRow label={t('details.type')} value={formatType(item.type)} />
                         </div>
                       </div>
                     ))}
                     <FileUploadDropzone className="flex min-h-full flex-col items-center justify-center rounded-lg border border-dashed bg-background/60 p-3 text-center">
                       <div className="flex aspect-square w-full flex-col items-center justify-center">
                         <HugeiconsIcon icon={ImageUploadIcon} strokeWidth={1.75} className="mb-2 size-7 text-muted-foreground" />
-                        <p className="text-xs font-semibold">Tambah image</p>
-                        <p className="text-[11px] text-muted-foreground">{items.length}/{MAX_FILES} file</p>
+                        <p className="text-xs font-semibold">{t('addMore')}</p>
+                        <p className="text-[11px] text-muted-foreground">{items.length}/{MAX_FILES}</p>
                       </div>
                     </FileUploadDropzone>
                   </div>
@@ -448,8 +450,8 @@ export default function ConvertImagePage() {
           ) : (
             <>
               <div>
-                <h1 className="text-2xl font-bold tracking-tight">Result</h1>
-                <p className="mt-1 text-sm text-muted-foreground">Preview dan download hasil convert</p>
+                <h1 className="text-2xl font-bold tracking-tight">{t('results.title')}</h1>
+                <p className="mt-1 text-sm text-muted-foreground">{t('results.subtitle')}</p>
               </div>
 
               <div className="grid min-h-0 flex-1 auto-rows-min grid-cols-2 gap-3 overflow-y-auto lg:grid-cols-3">
@@ -460,10 +462,10 @@ export default function ConvertImagePage() {
                     </div>
                     <div className="grid gap-1 p-2">
                       <p className="truncate text-xs font-medium">{result.name}</p>
-                      <DetailRow label="Pixel" value={`${result.width} × ${result.height}`} />
-                      <DetailRow label="Size" value={formatBytes(result.size)} />
-                      <DetailRow label="Format" value={formatType(result.type)} />
-                      <DetailRow label="Selisih" value={`${result.size <= result.originalSize ? "-" : "+"}${formatBytes(Math.abs(result.originalSize - result.size))}`} />
+                      <DetailRow label={t('details.dimensions')} value={`${result.width} × ${result.height}`} />
+                      <DetailRow label={t('details.size')} value={formatBytes(result.size)} />
+                      <DetailRow label={t('details.type')} value={formatType(result.type)} />
+                      <DetailRow label={t('results.saved')} value={`${result.size <= result.originalSize ? "-" : "+"}${formatBytes(Math.abs(result.originalSize - result.size))}`} />
                       <Button
                         size="sm"
                         className="mt-1"
@@ -474,7 +476,7 @@ export default function ConvertImagePage() {
                           link.click()
                         }}
                       >
-                        Download
+                        {t('download')}
                       </Button>
                     </div>
                   </div>
@@ -487,27 +489,27 @@ export default function ConvertImagePage() {
         <aside className="flex h-fit flex-col rounded-lg border bg-card p-4 lg:sticky lg:top-4 lg:h-full lg:w-[320px] lg:flex-none">
           <div className="flex-1 space-y-4">
             <div className="grid gap-2">
-              <h2 className="text-sm font-semibold">Output format</h2>
+              <h2 className="text-sm font-semibold">{t('format')}</h2>
               <FormatToggle value={format} onChange={setFormat} />
             </div>
 
             <div className="flex items-center justify-between gap-3 rounded-lg border bg-background p-3">
               <div>
-                <h2 className="text-sm font-semibold">Compress</h2>
-                <p className="text-xs text-muted-foreground">Untuk JPG dan WEBP</p>
+                <h2 className="text-sm font-semibold">{t('compress')}</h2>
+                <p className="text-xs text-muted-foreground">JPG & WEBP</p>
               </div>
               <Switch checked={compress} onCheckedChange={setCompress} disabled={format === "png"} aria-label="Toggle compression" />
             </div>
 
             <div className={canUseQuality ? "grid gap-2" : "pointer-events-none opacity-50 grid gap-2"}>
               <label className="flex items-center justify-between text-sm font-semibold">
-                <span>Quality</span>
+                <span>{t('quality')}</span>
                 <span className="tabular-nums text-xs font-normal text-muted-foreground">{Math.round(quality * 100)}%</span>
               </label>
               <input type="range" min={0.1} max={1} step={0.05} value={quality} disabled={!canUseQuality} onChange={(event) => setQuality(Number(event.target.value))} className="w-full" />
             </div>
 
-            {isReading && <p className="text-xs text-muted-foreground">Membaca file...</p>}
+            {isReading && <p className="text-xs text-muted-foreground">{t('reading')}</p>}
             {error && <p className="rounded-lg border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">{error}</p>}
           </div>
 
@@ -515,24 +517,24 @@ export default function ConvertImagePage() {
             {results.length > 0 ? (
               <div className="flex gap-2">
                 <Button className="flex-1" onClick={downloadAll}>
-                  Download semua
+                  {t('downloadAll')}
                 </Button>
                 <Button className="flex-1" variant="outline" onClick={downloadZip} disabled={isZipping}>
-                  {isZipping ? "Zipping..." : "Download ZIP"}
+                  {isZipping ? t('zipping') : t('downloadZip')}
                 </Button>
               </div>
             ) : (
               <Button onClick={handleConvert} disabled={files.length === 0 || isReading || isConverting} data-umami-event="image_convert">
-                {isConverting ? "Converting..." : "Convert semua"}
+                {isConverting ? t('converting') : t('convertAll', { count: files.length })}
               </Button>
             )}
             {results.length > 0 && (
               <Button variant="outline" onClick={resetResults}>
-                Back
+                {t('back')}
               </Button>
             )}
             <Button variant="outline" onClick={resetAll} disabled={files.length === 0 && !error}>
-              Reset
+              {t('clear')}
             </Button>
           </div>
         </aside>

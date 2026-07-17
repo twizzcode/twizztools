@@ -5,39 +5,41 @@ import { usePathname } from "next/navigation"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Home01Icon, ScissorIcon, InstagramIcon, Menu01Icon, MessageMultiple01Icon } from "@hugeicons/core-free-icons"
 import { useSidebar } from "@/components/ui/sidebar"
-
-const navItems = [
-  {
-    title: "Home",
-    url: "/",
-    icon: Home01Icon,
-  },
-  {
-    title: "Cutter",
-    url: "/cutter",
-    icon: ScissorIcon,
-  },
-  {
-    title: "Menu",
-    url: "#",
-    icon: Menu01Icon,
-    isMenu: true,
-  },
-  {
-    title: "Reels",
-    url: "/reels",
-    icon: InstagramIcon,
-  },
-  {
-    title: "Captions",
-    url: "/captions",
-    icon: MessageMultiple01Icon,
-  },
-]
+import { useTranslations } from "next-intl"
 
 export function MobileNav() {
   const pathname = usePathname()
   const { toggleSidebar } = useSidebar()
+  const t = useTranslations('nav');
+
+  const navItems = [
+    {
+      title: t('home'),
+      url: "/",
+      icon: Home01Icon,
+    },
+    {
+      title: t('cutter'),
+      url: "/cutter",
+      icon: ScissorIcon,
+    },
+    {
+      title: t('menu'),
+      url: "#",
+      icon: Menu01Icon,
+      isMenu: true,
+    },
+    {
+      title: t('reels'),
+      url: "/reels",
+      icon: InstagramIcon,
+    },
+    {
+      title: t('captions'),
+      url: "/captions",
+      icon: MessageMultiple01Icon,
+    },
+  ];
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t bg-background md:hidden">

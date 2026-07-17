@@ -1,5 +1,8 @@
+"use client"
+
 import { MinusSignIcon, PlusSignIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
+import { useTranslations } from "next-intl"
 
 import { Button } from "@/components/ui/button"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
@@ -9,10 +12,12 @@ function Segmented<T extends string>({
   options,
   value,
   onChange,
+  labels,
 }: {
   options: readonly T[]
   value: T
   onChange: (value: T) => void
+  labels?: Record<T, string>
 }) {
   return (
     <ToggleGroup
@@ -28,7 +33,7 @@ function Segmented<T extends string>({
     >
       {options.map((item) => (
         <ToggleGroupItem key={item} value={item} className="w-full">
-          {item}
+          {labels?.[item] || item}
         </ToggleGroupItem>
       ))}
     </ToggleGroup>
@@ -97,6 +102,18 @@ export function SettingsPanel({
   onReset,
   onBackToCrop,
 }: SettingsPanelProps) {
+  const t = useTranslations('cutter');
+  
+  const modeLabels: Record<CutMode, string> = {
+    Grid: t('modes.grid'),
+    Carousel: t('modes.carousel'),
+    Custom: t('modes.custom'),
+  };
+  
+  const gapLabels: Record<GapOption, string> = {
+    'With-Gap': t('gapTypes.withGap'),
+    'Without-Gap': t('gapTypes.noGap'),
+  };
 
   return (
     <aside className="flex h-fit flex-col bg-transparent lg:sticky lg:top-0 lg:h-full lg:min-h-0">
@@ -104,35 +121,35 @@ export function SettingsPanel({
         <div className="flex flex-col gap-3 rounded-lg border bg-card p-4 lg:h-full">
           <div className="flex-1 space-y-3">
             <div className="grid gap-2">
-              <h2 className="text-sm font-semibold">Type of Cut</h2>
-              <Segmented options={CUT_MODES} value={mode} onChange={onModeChange} />
+              <h2 className="text-sm font-semibold">{t('typeOfCut')}</h2>
+              <Segmented options={CUT_MODES} value={mode} onChange={onModeChange} labels={modeLabels} />
             </div>
 
             <div className="grid gap-3 grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               {mode !== "Carousel" && (
-                <Counter label="Rows" value={rows} onChange={onRowsChange} />
+                <Counter label={t('rows')} value={rows} onChange={onRowsChange} />
               )}
 
               {mode !== "Grid" && (
-                <Counter label="Columns" value={cols} onChange={onColsChange} />
+                <Counter label={t('columns')} value={cols} onChange={onColsChange} />
               )}
             </div>
 
             <div className={mode === "Grid" ? "grid gap-2" : "pointer-events-none invisible grid gap-2"}>
-              <h2 className="text-sm font-semibold">Type of Grid</h2>
-              <Segmented options={GRID_GAP_OPTIONS} value={gap} onChange={onGapChange} />
+              <h2 className="text-sm font-semibold">{t('typeOfGrid')}</h2>
+              <Segmented options={GRID_GAP_OPTIONS} value={gap} onChange={onGapChange} labels={gapLabels} />
               <p className="text-xs text-muted-foreground">
-                Rekomendasi: {gap === "With-Gap" ? `3130 × ${1350 * rows}` : `3110 × ${1350 * rows}`} px
+                {t('recommendation')}: {gap === "With-Gap" ? `3130 × ${1350 * rows}` : `3110 × ${1350 * rows}`} px
               </p>
             </div>
           </div>
 
           <div className="grid gap-3">
             <Button onClick={onCrop} disabled={!imageFile || isCropping} data-umami-event={cropEvent}>
-              {isCropping ? "Cropping..." : "Crop"}
+              {isCropping ? t('cropping') : t('crop')}
             </Button>
             <Button variant="outline" onClick={onReset} disabled={!imageFile}>
-              Reset
+              {t('reset')}
             </Button>
           </div>
         </div>
@@ -153,14 +170,13 @@ export function SettingsPanel({
                 })
               }}
             >
-              Download semua
+              {t('downloadAll')}
             </Button>
-
             <Button variant="outline" onClick={onBackToCrop}>
-              Back
+              {t('backToCrop')}
             </Button>
             <Button variant="outline" onClick={onReset}>
-              Reset
+              {t('reset')}
             </Button>
           </div>
         </div>

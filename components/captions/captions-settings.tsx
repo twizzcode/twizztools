@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import {
   Select,
@@ -33,6 +34,7 @@ export function CaptionsSettings({
   isGenerating,
   hasImage,
 }: CaptionsSettingsProps) {
+  const t = useTranslations('captions');
   const [rateLimit, setRateLimit] = React.useState(() => checkRateLimit())
   const [footers, setFooters] = React.useState<
     Array<{ code: string }>
@@ -69,13 +71,19 @@ export function CaptionsSettings({
   const canGenerate = hasImage && rateLimit.allowed && !isGenerating
 
   const lengthOptions: CaptionOptions["length"][] = ["short", "medium", "long"]
+  
+  const lengthLabels: Record<CaptionOptions["length"], string> = {
+    short: t('lengths.short'),
+    medium: t('lengths.medium'),
+    long: t('lengths.long'),
+  };
 
   return (
     <aside className="flex h-fit flex-col bg-transparent lg:sticky lg:top-0 lg:h-full lg:min-h-0">
       <div className="flex flex-col gap-3 rounded-lg border bg-card p-4 lg:h-full lg:min-h-0">
         <div className="caption-scroll flex-1 overflow-auto space-y-3">
           <div className="grid gap-2">
-            <h2 className="text-sm font-semibold">Theme</h2>
+            <h2 className="text-sm font-semibold">{t('theme')}</h2>
             <Select
               value={options.theme}
               onValueChange={(value) =>
@@ -86,17 +94,17 @@ export function CaptionsSettings({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="personal">Personal</SelectItem>
-                <SelectItem value="organization">Organization</SelectItem>
-                <SelectItem value="promotion">Promotion</SelectItem>
-                <SelectItem value="event">Event</SelectItem>
-                <SelectItem value="education">Education</SelectItem>
+                <SelectItem value="personal">{t('themes.personal')}</SelectItem>
+                <SelectItem value="organization">{t('themes.organization')}</SelectItem>
+                <SelectItem value="promotion">{t('themes.promotion')}</SelectItem>
+                <SelectItem value="event">{t('themes.event')}</SelectItem>
+                <SelectItem value="education">{t('themes.education')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="grid gap-2">
-            <h2 className="text-sm font-semibold">Tone</h2>
+            <h2 className="text-sm font-semibold">{t('tone')}</h2>
             <Select
               value={options.tone}
               onValueChange={(value) =>
@@ -107,17 +115,17 @@ export function CaptionsSettings({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="casual">Casual</SelectItem>
-                <SelectItem value="formal">Formal</SelectItem>
-                <SelectItem value="inspirational">Inspirational</SelectItem>
-                <SelectItem value="professional">Professional</SelectItem>
-                <SelectItem value="friendly">Friendly</SelectItem>
+                <SelectItem value="casual">{t('tones.casual')}</SelectItem>
+                <SelectItem value="formal">{t('tones.formal')}</SelectItem>
+                <SelectItem value="inspirational">{t('tones.inspirational')}</SelectItem>
+                <SelectItem value="professional">{t('tones.professional')}</SelectItem>
+                <SelectItem value="friendly">{t('tones.friendly')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="grid gap-2">
-            <h2 className="text-sm font-semibold">Length</h2>
+            <h2 className="text-sm font-semibold">{t('length')}</h2>
             <ToggleGroup
               value={[options.length]}
               onValueChange={(value) => {
@@ -131,14 +139,14 @@ export function CaptionsSettings({
             >
               {lengthOptions.map((item) => (
                 <ToggleGroupItem key={item} value={item} className="w-full capitalize">
-                  {item}
+                  {lengthLabels[item]}
                 </ToggleGroupItem>
               ))}
             </ToggleGroup>
           </div>
 
           <div className="grid gap-2">
-            <h2 className="text-sm font-semibold">Writing Style</h2>
+            <h2 className="text-sm font-semibold">{t('writingStyle')}</h2>
             <Select
               value={options.writingStyle}
               onValueChange={(value) =>
@@ -152,16 +160,16 @@ export function CaptionsSettings({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="storytelling">Storytelling</SelectItem>
-                <SelectItem value="informative">Informative</SelectItem>
-                <SelectItem value="persuasive">Persuasive</SelectItem>
-                <SelectItem value="reflective">Reflective</SelectItem>
+                <SelectItem value="storytelling">{t('writingStyles.storytelling')}</SelectItem>
+                <SelectItem value="informative">{t('writingStyles.informative')}</SelectItem>
+                <SelectItem value="persuasive">{t('writingStyles.persuasive')}</SelectItem>
+                <SelectItem value="reflective">{t('writingStyles.reflective')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="grid gap-2">
-            <h2 className="text-sm font-semibold">Language</h2>
+            <h2 className="text-sm font-semibold">{t('language')}</h2>
             <Select
               value={options.language}
               onValueChange={(value) =>
@@ -172,15 +180,15 @@ export function CaptionsSettings({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="english">🇺🇸 English</SelectItem>
-                <SelectItem value="indonesian">🇮🇩 Bahasa Indonesia</SelectItem>
+                <SelectItem value="english">{t('languages.english')}</SelectItem>
+                <SelectItem value="indonesian">{t('languages.indonesian')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="grid gap-2">
             <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold">Include Emotions</h2>
+              <h2 className="text-sm font-semibold">{t('includeEmotions')}</h2>
               <Switch
                 id="emotions"
                 checked={options.includeEmotions}
@@ -193,7 +201,7 @@ export function CaptionsSettings({
 
           <div className="grid gap-2">
             <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold">Custom Prompt</h2>
+              <h2 className="text-sm font-semibold">{t('customPrompt')}</h2>
               <Switch
                 id="custom-prompt-toggle"
                 checked={options.customPrompt !== undefined}
@@ -209,7 +217,7 @@ export function CaptionsSettings({
             {options.customPrompt !== undefined && (
               <div className="space-y-2">
                 <Textarea
-                  placeholder="e.g. Mention sustainability, Include call-to-action, Focus on benefits..."
+                  placeholder={t('customPromptPlaceholder')}
                   value={options.customPrompt || ""}
                   onChange={(e) =>
                     onOptionsChange({ ...options, customPrompt: e.target.value })
@@ -218,7 +226,7 @@ export function CaptionsSettings({
                   className="text-sm"
                 />
                 <p className="text-xs text-muted-foreground">
-                  Add specific instructions to customize the caption generation
+                  {t('customPromptHint')}
                 </p>
               </div>
             )}
@@ -226,7 +234,7 @@ export function CaptionsSettings({
 
           <div className="grid gap-2">
             <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold">Include Footer</h2>
+              <h2 className="text-sm font-semibold">{t('includeFooter')}</h2>
               <Switch
                 id="footer-toggle"
                 checked={options.footerCode !== undefined}
@@ -251,7 +259,7 @@ export function CaptionsSettings({
                   }
                 >
                   <SelectTrigger id="footer">
-                    <SelectValue placeholder="Select footer" />
+                    <SelectValue placeholder={t('selectFooter')} />
                   </SelectTrigger>
                   <SelectContent>
                     {footers.map((footer) => (
@@ -267,7 +275,7 @@ export function CaptionsSettings({
                   className="w-full"
                   onClick={() => setShowFooterManager(true)}
                 >
-                  Manage Footers
+                  {t('manageFooters')}
                 </Button>
               </div>
             )}
@@ -275,16 +283,16 @@ export function CaptionsSettings({
         </div>
 
         <div className="grid gap-3">
-        <div className="rounded-lg bg-muted p-4 text-center">
-          <p className="text-sm font-medium">
-            {rateLimit.remaining}/5 generations remaining today
-          </p>
-          {!rateLimit.allowed && (
-            <p className="mt-1 text-xs text-muted-foreground">
-              Resets at midnight
+          <div className="rounded-lg bg-muted p-4 text-center">
+            <p className="text-sm font-medium">
+              {t('usageLimit', { used: 5 - rateLimit.remaining, limit: 5 })}
             </p>
-          )}
-        </div>
+            {!rateLimit.allowed && (
+              <p className="mt-1 text-xs text-muted-foreground">
+                {t('resetIn', { time: 'midnight' })}
+              </p>
+            )}
+          </div>
 
           <Button
             className="w-full"
@@ -292,15 +300,14 @@ export function CaptionsSettings({
             disabled={!canGenerate}
             data-umami-event={generateEvent}
           >
-            {isGenerating ? "Generating..." : "Generate Captions"}
+            {isGenerating ? t('generating') : t('generate')}
           </Button>
         </div>
-
-        <FooterManager
-          open={showFooterManager}
-          onClose={handleFooterManagerClose}
-        />
       </div>
+
+      {showFooterManager && (
+        <FooterManager open={showFooterManager} onClose={handleFooterManagerClose} />
+      )}
     </aside>
   )
 }

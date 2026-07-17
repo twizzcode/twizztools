@@ -1,5 +1,8 @@
+"use client"
+
 import { ImageUploadIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
+import { useTranslations } from "next-intl"
 import { FileUpload, FileUploadDropzone } from "@/components/ui/file-upload"
 import { CaptionsResults } from "./captions-results"
 
@@ -22,6 +25,8 @@ export function CaptionsWorkspace({
   onGenerateAgain,
   canGenerateAgain,
 }: CaptionsWorkspaceProps) {
+  const t = useTranslations('captions');
+  
   const handleFilesChange = (files: File[]) => {
     if (files.length === 0) {
       onImageChange(undefined)
@@ -60,10 +65,10 @@ export function CaptionsWorkspace({
           <div className="flex h-full items-center justify-center flex-col gap-8">
             <div className="text-center">
               <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-                AI Caption Generator
+                {t('title')}
               </h1>
               <p className="mt-2 text-sm text-muted-foreground">
-                Generate engaging social media captions with AI
+                {t('subtitle')}
               </p>
             </div>
             <FileUploadDropzone className="min-h-25 w-full max-w-sm rounded-2xl bg-background/60 px-6 py-10 lg:min-h-30 lg:flex-none">
@@ -72,9 +77,9 @@ export function CaptionsWorkspace({
                 strokeWidth={1.75}
                 className="mb-4 size-10 text-muted-foreground"
               />
-              <p className="text-sm font-semibold">Drop image di sini</p>
+              <p className="text-sm font-semibold">{t('dropImage')}</p>
               <p className="text-xs text-muted-foreground">
-                atau klik buat pilih file (Max 20MB)
+                {t('orClick')}
               </p>
             </FileUploadDropzone>
           </div>
@@ -87,7 +92,7 @@ export function CaptionsWorkspace({
                 <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/80 backdrop-blur-sm rounded-lg">
                   <div className="text-center">
                     <div className="mb-4 inline-block size-12 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-                    <p className="text-sm font-medium">Generating captions...</p>
+                    <p className="text-sm font-medium">{t('generating')}</p>
                   </div>
                 </div>
               )}

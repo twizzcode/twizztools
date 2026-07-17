@@ -1,5 +1,7 @@
 import { Geist_Mono, Roboto } from "next/font/google"
 import type { Metadata } from "next"
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 import "./globals.css"
 import { AppSidebar } from "@/components/sidebar/app-sidebar"
@@ -44,11 +46,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const messages = await getMessages();
+
   return (
     <html
       lang="en"
@@ -56,21 +60,23 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", roboto.variable)}
     >
       <body>
-        <UmamiAnalytics />
-        <ThemeProvider>
-          <Toaster />
-          <WelcomeDialog />
-          <div className="h-svh overflow-hidden [--header-height:calc(--spacing(14))]">
-            <SidebarProvider className="flex h-full min-h-0 w-full flex-col overflow-hidden">
-              <SiteHeader />
-              <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 overflow-hidden pb-16 md:pb-0">
-                <AppSidebar />
-                <SidebarInset>{children}</SidebarInset>
-              </div>
-              <MobileNav />
-            </SidebarProvider>
-          </div>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <UmamiAnalytics />
+          <ThemeProvider>
+            <Toaster />
+            <WelcomeDialog />
+            <div className="h-svh overflow-hidden [--header-height:calc(--spacing(14))]">
+              <SidebarProvider className="flex h-full min-h-0 w-full flex-col overflow-hidden">
+                <SiteHeader />
+                <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 overflow-hidden pb-16 md:pb-0">
+                  <AppSidebar />
+                  <SidebarInset className="border-r">{children}</SidebarInset>
+                </div>
+                <MobileNav />
+              </SidebarProvider>
+            </div>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
