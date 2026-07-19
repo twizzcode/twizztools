@@ -145,7 +145,7 @@ export function SettingsPanel({
           </div>
 
           <div className="grid gap-3">
-            <Button onClick={onCrop} disabled={!imageFile || isCropping} data-umami-event={cropEvent}>
+            <Button onClick={onCrop} disabled={!imageFile || isCropping} data-umami-event={cropEvent} data-umami-event-mode={mode}>
               {isCropping ? t('cropping') : t('crop')}
             </Button>
             <Button variant="outline" onClick={onReset} disabled={!imageFile}>
