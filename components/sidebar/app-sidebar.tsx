@@ -23,6 +23,7 @@ import {
   MessageMultiple01Icon,
   NoteIcon,
   HelpCircleIcon,
+  BookOpen01Icon,
   Moon02Icon,
   Sun03Icon,
   GroupIcon,
@@ -118,6 +119,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       title: t('faq'),
       url: "/faq",
       icon: <HugeiconsIcon icon={HelpCircleIcon} strokeWidth={2} />,
+    },
+    {
+      title: t('guide'),
+      url: "/guide",
+      icon: <HugeiconsIcon icon={BookOpen01Icon} strokeWidth={2} />,
     },
   ], [t]);
   

@@ -1,0 +1,29 @@
+{
+  "title": "Guide",
+  "subtitle": "Panduan singkat memakai fitur TwizzTools.",
+  "metadata": {
+    "title": "Guide - TwizzTools",
+    "description": "Panduan memakai TwizzTools."
+  },
+  "cutter": {
+    "title": "Guide Cutter Carousel",
+    "subtitle": "Gunakan canvas tinggi 1350px. Tiap slide memakai lebar 1080px, lalu gambar dipotong per kotak untuk carousel.",
+    "width": "1080px",
+    "height": "1350px",
+    "slides": "Contoh 4 slide carousel: total lebar 4320px."
+  },
+  "steps": [
+    {
+      "title": "Pilih tool",
+      "description": "Pilih tool dari navigasi utama sesuai kebutuhan konten kamu."
+    },
+    {
+      "title": "Atur input",
+      "description": "Isi field yang dibutuhkan dan sesuaikan pengaturan sebelum membuat hasil."
+    },
+    {
+      "title": "Ekspor hasil",
+      "description": "Salin, unduh, atau simpan output saat hasil sudah sesuai kebutuhan."
+    }
+  ]
+}

@@ -9,6 +9,20 @@
   },
   "entries": [
     {
+      "id": "size-guide",
+      "version": "3.0.7",
+      "date": "2026-07-21",
+      "title": "Size Guide",
+      "description": "Today's update adds a dedicated size guide for cutter carousel and grid modes.",
+      "changes": [
+        "New Guide page with carousel and grid size references",
+        "Carousel size list from 1 to 10 slides",
+        "Grid mode references for With gap and Without gap layouts",
+        "Size guide button added below Image Cutter upload",
+        "Guide navigation added to sidebar"
+      ]
+    },
+    {
       "id": "intl-language",
       "version": "3.0.6",
       "date": "2026-07-17",

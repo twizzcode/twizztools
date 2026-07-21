@@ -1,0 +1,29 @@
+{
+  "title": "Guide",
+  "subtitle": "Quick guide for using TwizzTools features.",
+  "metadata": {
+    "title": "Guide - TwizzTools",
+    "description": "Guide for using TwizzTools."
+  },
+  "cutter": {
+    "title": "Carousel Cutter Guide",
+    "subtitle": "Use a 1350px tall canvas. Each slide uses 1080px width, then image is cut per box for carousel.",
+    "width": "1080px",
+    "height": "1350px",
+    "slides": "4-slide carousel example: total width 4320px."
+  },
+  "steps": [
+    {
+      "title": "Pick a tool",
+      "description": "Choose a tool from the main navigation based on what you want to create."
+    },
+    {
+      "title": "Set inputs",
+      "description": "Fill in the required fields and adjust settings before generating results."
+    },
+    {
+      "title": "Export results",
+      "description": "Copy, download, or save generated output when it matches your needs."
+    }
+  ]
+}

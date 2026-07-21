@@ -22,5 +22,6 @@
   "reset": "Reset",
   "downloadAll": "Download semua",
   "downloadResult": "Download hasil {number}",
-  "backToCrop": "Back"
+  "backToCrop": "Back",
+  "sizeGuide": "Lihat panduan ukuran"
 }

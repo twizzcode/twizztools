@@ -9,6 +9,20 @@
   },
   "entries": [
     {
+      "id": "size-guide",
+      "version": "3.0.7",
+      "date": "2026-07-21",
+      "title": "Size Guide",
+      "description": "Update hari ini menambahkan panduan ukuran khusus untuk mode carousel dan grid di cutter.",
+      "changes": [
+        "Halaman Guide baru dengan referensi ukuran carousel dan grid",
+        "Daftar ukuran carousel dari 1 sampai 10 slide",
+        "Referensi Grid Mode untuk layout With gap dan Without gap",
+        "Tombol panduan ukuran ditambahkan di bawah upload Image Cutter",
+        "Navigasi Guide ditambahkan ke sidebar"
+      ]
+    },
+    {
       "id": "intl-language",
       "version": "3.0.6",
       "date": "2026-07-17",

@@ -22,5 +22,6 @@
   "reset": "Reset",
   "downloadAll": "Download all",
   "downloadResult": "Download result {number}",
-  "backToCrop": "Back"
+  "backToCrop": "Back",
+  "sizeGuide": "View size guide"
 }
