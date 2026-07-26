@@ -3,7 +3,6 @@ import { notFound } from "next/navigation"
 
 import { AppSidebar } from "@/components/sidebar/app-sidebar"
 import { SiteHeader } from "@/components/sidebar/site-header"
-import { ThemeProvider } from "@/components/theme-provider"
 import { MobileNav } from "@/components/mobile-nav"
 import { WelcomeDialogLoader } from "@/components/welcome-dialog-loader"
 import { UmamiAnalytics } from "@/components/umami-analytics"
@@ -36,20 +35,18 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={{ nav: messages.nav }}>
       <UmamiAnalytics />
-      <ThemeProvider>
-        <Toaster />
-        <WelcomeDialogLoader />
-        <div className="h-svh overflow-hidden [--header-height:calc(--spacing(14))]">
-          <SidebarProvider className="flex h-full min-h-0 w-full flex-col overflow-hidden">
-            <SiteHeader latestVersion={latestVersion} />
-            <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 overflow-hidden pb-16 md:pb-0">
-              <AppSidebar />
-              <SidebarInset className="border-r">{children}</SidebarInset>
-            </div>
-            <MobileNav />
-          </SidebarProvider>
-        </div>
-      </ThemeProvider>
+      <Toaster />
+      <WelcomeDialogLoader />
+      <div className="h-svh overflow-hidden [--header-height:calc(--spacing(14))]">
+        <SidebarProvider className="flex h-full min-h-0 w-full flex-col overflow-hidden">
+          <SiteHeader latestVersion={latestVersion} />
+          <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 overflow-hidden pb-16 md:pb-0">
+            <AppSidebar />
+            <SidebarInset className="border-r">{children}</SidebarInset>
+          </div>
+          <MobileNav />
+        </SidebarProvider>
+      </div>
     </NextIntlClientProvider>
   )
 }
