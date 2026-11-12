@@ -5,6 +5,7 @@ import { AppSidebar } from "@/components/sidebar/app-sidebar"
 import { SiteHeader } from "@/components/sidebar/site-header"
 import { MobileNav } from "@/components/mobile-nav"
 import { WelcomeDialogLoader } from "@/components/welcome-dialog-loader"
+import { GoogleTagManager } from "@/components/google-tag-manager"
 import { UmamiAnalytics } from "@/components/umami-analytics"
 import { Toaster } from "@/components/ui/sonner"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
@@ -29,11 +30,14 @@ export default async function LocaleLayout({
   }
 
   const messages = await getNamespaceMessages(["nav", "changelog"])
-  const changelog = messages.changelog as { entries: Array<{ version: string }> }
+  const changelog = messages.changelog as {
+    entries: Array<{ version: string }>
+  }
   const latestVersion = changelog.entries[0]?.version ?? "0.0.0"
 
   return (
     <NextIntlClientProvider messages={{ nav: messages.nav }}>
+      <GoogleTagManager />
       <UmamiAnalytics />
       <Toaster />
       <WelcomeDialogLoader />
